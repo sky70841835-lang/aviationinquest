@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Aviation Inquest | Investigation Files</title><link rel="stylesheet" href="styles.css"></head>
+<body data-page="investigations">
+<nav>
+  <div class="logo-area"><img class="logo-image" src="assets/aviation-inquest-logo.png" alt="Aviation Inquest logo"></div>
+  <div class="nav-links">
+    <a href="index.html" data-page="registry">Registry Index</a>
+    <a href="investigation-files.html" data-page="investigations">Investigation Files</a>
+    <a href="archival-records.html" data-page="archive">Archival Records</a>
+  </div>
+</nav>
+
+<main class="container">
+<header><h1>INVESTIGATION FILES</h1><p>Active and critical records indexed from the current registry dataset.</p></header>
+<div class="card-grid" id="investigationGrid"></div>
+</main>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+ const grid=document.getElementById('investigationGrid');
+ grid.innerHTML=INCIDENTS.filter(i=>i.critical||i.classification==='Investigation Active').map(i=>`
+ <article class="card"><h3>${esc(i.title)}</h3><p>${esc(i.aircraft)}</p><div class="meta">${esc(i.date)} · ${esc(i.classification)}</div>
+ <button class="action-btn" style="margin-top:14px" onclick='openIncident(${JSON.stringify(i)})'>View file</button>
+ </article>`).join('');
+});
+</script>
+
+<footer><div>&copy; 2026 Aviation Inquest Archive. All rights reserved.</div>
+<div style="text-align:right;max-width:55%">Maintained for public record, research, and educational analysis. AI responses may include mistakes.</div></footer>
+<div class="modal-backdrop" id="modalBackdrop" onclick="if(event.target===this)closeModal()"><div class="modal">
+  <div class="modal-head"><h2 id="modalTitle">Record</h2><button class="close" onclick="closeModal()">×</button></div>
+  <div class="modal-body" id="modalBody"></div>
+</div></div>
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body></html>

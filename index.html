@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Aviation Inquest | Registry Index</title><link rel="stylesheet" href="styles.css"></head>
+<body data-page="registry">
+<nav>
+  <div class="logo-area"><img class="logo-image" src="assets/aviation-inquest-logo.png" alt="Aviation Inquest logo"></div>
+  <div class="nav-links">
+    <a href="index.html" data-page="registry">Registry Index</a>
+    <a href="investigation-files.html" data-page="investigations">Investigation Files</a>
+    <a href="archival-records.html" data-page="archive">Archival Records</a>
+  </div>
+</nav>
+
+<main class="container">
+<header><h1>INCIDENT REGISTRY LOG</h1><p>Official repository detailing historical aviation accidents, investigations, and black-box transcripts.</p></header>
+<div class="stats">
+  <div class="stat"><strong id="resultCount">10</strong><span>Visible records</span></div>
+  <div class="stat"><strong>2026</strong><span>Registry year</span></div>
+  <div class="stat"><strong>Live</strong><span>Local search</span></div>
+</div>
+<div class="toolbar">
+  <div class="search-wrap"><input id="registrySearch" class="search-box" type="search" autocomplete="off" placeholder="Filter by date, location, registration, or aircraft model..."><button id="clearSearch" class="clear-search" aria-label="Clear search">×</button></div>
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="critical">Critical</button>
+  <button class="filter-btn" data-filter="active">Active</button>
+</div>
+<table class="registry-table"><thead><tr><th style="width:15%">Date</th><th style="width:45%">Incident Details</th><th style="width:20%">Classification</th><th style="width:20%">Documentation</th></tr></thead><tbody id="registryBody"></tbody></table>
+<div class="empty" id="emptyState">No matching records. The registry has entered its dramatic empty-room era.</div>
+<p style="margin-top:12px;color:#52525b;font-size:11px">Tip: click any row for record details, or click a document name to open its document index.</p>
+</main>
+
+<footer><div>&copy; 2026 Aviation Inquest Archive. All rights reserved.</div>
+<div style="text-align:right;max-width:55%">Maintained for public record, research, and educational analysis. AI responses may include mistakes.</div></footer>
+<div class="modal-backdrop" id="modalBackdrop" onclick="if(event.target===this)closeModal()"><div class="modal">
+  <div class="modal-head"><h2 id="modalTitle">Record</h2><button class="close" onclick="closeModal()">×</button></div>
+  <div class="modal-body" id="modalBody"></div>
+</div></div>
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body></html>
