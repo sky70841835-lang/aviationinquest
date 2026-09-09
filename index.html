@@ -1,318 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
   <title>Aviation Inquest | Home</title>
 
   <link rel="stylesheet" href="styles.css">
 
   <style>
-
     /* =========================================================
-       AVIATION INQUEST // MODERN HOME OVERRIDES
-       HTML-ONLY DESIGN SYSTEM
+       AVIATION INQUEST HOME
+       Everything below is intentionally scoped to this page.
+       app.js and the existing GitHub setup remain untouched.
     ========================================================= */
 
     :root {
-      --bg: #040506;
-      --bg-soft: #090b0e;
-      --panel: rgba(255,255,255,.055);
-      --panel-hover: rgba(255,255,255,.075);
-      --glass: rgba(255,255,255,.065);
-      --glass-strong: rgba(255,255,255,.10);
-
-      --border: rgba(255,255,255,.12);
-      --border-strong: rgba(255,255,255,.20);
-
+      --bg: #050608;
+      --bg2: #090b0f;
       --text: #f7f8fa;
-      --muted: #9198a3;
-      --muted-2: #6d747e;
+      --muted: #979da7;
+      --muted2: #6d737d;
 
-      --accent: #74a7ff;
-      --accent-2: #6bffd0;
-      --danger: #ff6868;
+      --panel: rgba(255,255,255,.055);
+      --panel2: rgba(255,255,255,.035);
+      --stroke: rgba(255,255,255,.11);
+      --stroke2: rgba(255,255,255,.18);
 
-      --shadow:
-        0 20px 70px rgba(0,0,0,.45);
+      --accent: #7da8ff;
+      --green: #6dffc7;
 
-      --radius-xl: 32px;
-      --radius-lg: 24px;
-      --radius-md: 18px;
-      --radius-sm: 13px;
+      --shadow: 0 24px 80px rgba(0,0,0,.45);
 
-      --transition:
-        180ms cubic-bezier(.2,.8,.2,1);
+      --r-xl: 30px;
+      --r-lg: 24px;
+      --r-md: 18px;
+      --r-pill: 999px;
     }
 
-
-    /* ==============================
-       LIGHT MODE
-    ============================== */
-
-    body.light-mode {
-
-      --bg: #eef2f6;
-      --bg-soft: #e8edf3;
-
-      --panel: rgba(255,255,255,.62);
-      --panel-hover: rgba(255,255,255,.78);
-      --glass: rgba(255,255,255,.58);
-      --glass-strong: rgba(255,255,255,.78);
-
-      --border: rgba(20,30,45,.10);
-      --border-strong: rgba(20,30,45,.18);
-
-      --text: #11151b;
-      --muted: #626b77;
-      --muted-2: #7d8793;
-
-      --shadow:
-        0 22px 65px rgba(35,50,70,.14);
+    * {
+      box-sizing: border-box;
     }
-
-
-    /* ==============================
-       GLOBAL
-    ============================== */
 
     html {
       scroll-behavior: smooth;
     }
 
     body {
-      margin: 0;
+      margin: 0 !important;
+      min-height: 100vh;
+
+      color: var(--text) !important;
 
       background:
-        radial-gradient(
-          circle at 10% 0%,
-          rgba(90,140,255,.13),
-          transparent 28%
-        ),
+        radial-gradient(circle at 12% 0%, rgba(90,130,255,.12), transparent 28%),
+        radial-gradient(circle at 88% 8%, rgba(70,255,190,.07), transparent 25%),
+        linear-gradient(180deg, var(--bg), var(--bg2)) !important;
 
-        radial-gradient(
-          circle at 90% 10%,
-          rgba(80,255,200,.08),
-          transparent 26%
-        ),
-
-        linear-gradient(
-          180deg,
-          var(--bg),
-          var(--bg-soft)
-        );
-
-      color: var(--text);
+      overflow-x: hidden;
 
       transition:
         background .3s ease,
         color .3s ease;
-
-      overflow-x: hidden;
     }
 
+    /* =========================================================
+       LIGHT MODE
+    ========================================================= */
 
-    * {
-      box-sizing: border-box;
-    }
+    body.light-mode {
+      --bg: #f4f6f9;
+      --bg2: #e9edf2;
 
+      --text: #11151b;
+      --muted: #5e6671;
+      --muted2: #7b838e;
 
-    a,
-    button,
-    input {
-      -webkit-tap-highlight-color: transparent;
-    }
+      --panel: rgba(255,255,255,.78);
+      --panel2: rgba(255,255,255,.55);
+      --stroke: rgba(15,25,40,.10);
+      --stroke2: rgba(15,25,40,.16);
 
-
-    button,
-    a {
-      font: inherit;
-    }
-
-
-    /* ==============================
-       BLACK TOP BAR
-    ============================== */
-
-    nav {
-      position: sticky !important;
-      top: 0;
-      z-index: 9999;
-
-      height: 74px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      padding:
-        0 clamp(14px, 4vw, 42px);
+      --shadow: 0 22px 60px rgba(36,48,65,.12);
 
       background:
-        rgba(0,0,0,.96) !important;
-
-      border-bottom:
-        1px solid rgba(255,255,255,.08);
-
-      box-shadow:
-        0 14px 40px rgba(0,0,0,.20);
-
-      backdrop-filter:
-        blur(24px) saturate(150%);
-
-      -webkit-backdrop-filter:
-        blur(24px) saturate(150%);
+        radial-gradient(circle at 10% 0%, rgba(110,150,255,.12), transparent 28%),
+        radial-gradient(circle at 90% 5%, rgba(80,210,170,.08), transparent 25%),
+        linear-gradient(180deg, var(--bg), var(--bg2)) !important;
     }
 
+    /* =========================================================
+       TOP BAR
+    ========================================================= */
+
+    body > nav {
+      position: sticky !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 9000 !important;
+
+      width: 100% !important;
+      height: 72px !important;
+
+      margin: 0 !important;
+      padding: 0 24px !important;
+
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+
+      background: #000 !important;
+      border-bottom: 1px solid rgba(255,255,255,.08) !important;
+
+      box-shadow: 0 12px 40px rgba(0,0,0,.24) !important;
+
+      backdrop-filter: blur(22px) saturate(150%);
+      -webkit-backdrop-filter: blur(22px) saturate(150%);
+    }
+
+    .logo-area {
+      flex: 0 0 auto;
+    }
 
     .logo-area a {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
+      display: flex !important;
+      align-items: center !important;
+      text-decoration: none !important;
     }
-
 
     .logo-image {
-      width: 40px !important;
-      height: 40px !important;
-      object-fit: contain;
-      display: block;
-    }
+      width: 44px !important;
+      height: 44px !important;
+      object-fit: contain !important;
 
+      display: block !important;
+
+      border-radius: 12px;
+
+      background: #fff;
+
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,.10);
+    }
 
     .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
 
+      gap: 6px !important;
+    }
 
     .nav-links a {
-      color: rgba(255,255,255,.66) !important;
+      color: rgba(255,255,255,.65) !important;
 
-      text-decoration: none;
+      text-decoration: none !important;
 
-      padding:
-        10px 14px;
+      padding: 10px 14px !important;
 
-      border-radius: 999px;
+      border-radius: var(--r-pill) !important;
 
-      font-size: 10px;
-      font-weight: 800;
-
-      letter-spacing: .10em;
+      font-size: 9px !important;
+      font-weight: 900 !important;
+      letter-spacing: .11em !important;
 
       transition:
-        background var(--transition),
-        color var(--transition),
-        transform var(--transition);
+        background .18s ease,
+        color .18s ease,
+        transform .18s ease !important;
     }
-
 
     .nav-links a:hover,
     .nav-links a.active {
-      color: white !important;
-
-      background:
-        rgba(255,255,255,.09);
-
-      transform:
-        translateY(-1px);
+      color: #fff !important;
+      background: rgba(255,255,255,.09) !important;
+      transform: translateY(-1px);
     }
 
-
-    /* ==============================
-       THEME BUTTON
-    ============================== */
-
     .theme-toggle {
-
       width: 42px;
       height: 42px;
 
-      margin-left: 8px;
-
-      border: 1px solid rgba(255,255,255,.13);
-
-      border-radius: 50%;
-
-      background:
-        rgba(255,255,255,.07);
-
-      color: white;
-
-      cursor: pointer;
+      margin-left: 10px;
 
       display: grid;
       place-items: center;
 
-      font-size: 17px;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 50%;
 
-      box-shadow:
-        inset 0 1px rgba(255,255,255,.08);
+      background: rgba(255,255,255,.07);
+
+      color: #fff;
+
+      cursor: pointer;
 
       transition:
-        transform var(--transition),
-        background var(--transition);
+        transform .18s ease,
+        background .18s ease;
     }
-
 
     .theme-toggle:hover {
-      transform:
-        rotate(12deg)
-        scale(1.05);
-
-      background:
-        rgba(255,255,255,.13);
+      transform: rotate(10deg) scale(1.04);
+      background: rgba(255,255,255,.12);
     }
 
+    /* =========================================================
+       CONTAINER
+    ========================================================= */
 
-    /* ==============================
-       MAIN
-    ============================== */
-
-    .container {
-      width:
-        min(1420px, calc(100% - 28px));
+    body > .container {
+      width: min(1400px, calc(100% - 28px)) !important;
 
       margin:
-        22px auto 80px;
+        18px auto 60px !important;
+
+      padding: 0 !important;
     }
 
-
-    /* ==============================
-       GLASS SYSTEM
-    ============================== */
+    /* =========================================================
+       GLASS PANELS
+    ========================================================= */
 
     .glass-hero,
     .glass-panel {
 
       position: relative;
 
-      border:
-        1px solid var(--border);
+      border: 1px solid var(--stroke) !important;
+
+      border-radius: var(--r-xl) !important;
 
       background:
         linear-gradient(
           135deg,
-          var(--glass-strong),
-          var(--glass)
-        );
+          var(--panel),
+          var(--panel2)
+        ) !important;
+
+      box-shadow: var(--shadow) !important;
 
       backdrop-filter:
-        blur(28px) saturate(155%);
+        blur(28px) saturate(150%) !important;
 
       -webkit-backdrop-filter:
-        blur(28px) saturate(155%);
-
-      box-shadow:
-        var(--shadow);
+        blur(28px) saturate(150%) !important;
 
       overflow: hidden;
     }
-
 
     .glass-hero::before,
     .glass-panel::before {
@@ -320,105 +255,70 @@
       content: "";
 
       position: absolute;
-
       inset: 0;
 
       pointer-events: none;
 
       background:
         linear-gradient(
-          115deg,
-          rgba(255,255,255,.09),
+          125deg,
+          rgba(255,255,255,.08),
           transparent 22%,
           transparent 72%,
           rgba(255,255,255,.025)
         );
     }
 
-
-    .glass-panel {
-      margin-top: 18px;
-
-      padding:
-        clamp(20px, 3vw, 34px);
-
-      border-radius:
-        var(--radius-xl);
-    }
-
-
-    /* ==============================
+    /* =========================================================
        HERO
-    ============================== */
+    ========================================================= */
 
     .glass-hero {
 
-      min-height:
-        575px;
+      min-height: 560px !important;
 
       padding:
-        clamp(28px, 6vw, 78px);
+        clamp(28px, 6vw, 72px) !important;
 
-      border-radius:
-        36px;
+      display: flex;
 
-      display:
-        flex;
+      align-items: center;
 
-      align-items:
-        center;
+      justify-content: space-between;
 
-      justify-content:
-        space-between;
-
-      gap:
-        40px;
+      gap: 40px;
     }
-
 
     .hero-copy {
       position: relative;
       z-index: 2;
 
-      width:
-        min(720px, 100%);
+      max-width: 760px;
     }
-
 
     .eyebrow {
 
-      color:
-        var(--muted-2);
+      color: var(--muted2) !important;
 
-      font-size:
-        9px;
+      font-size: 9px !important;
+      font-weight: 900 !important;
 
-      font-weight:
-        900;
+      letter-spacing: .20em !important;
 
-      letter-spacing:
-        .20em;
-
-      margin-bottom:
-        13px;
+      margin-bottom: 14px !important;
     }
-
 
     .hero-copy h1 {
 
-      margin:
-        0;
+      margin: 0 !important;
 
       font-size:
-        clamp(48px, 7vw, 96px);
+        clamp(48px, 7vw, 94px) !important;
 
-      line-height:
-        .90;
+      line-height: .91 !important;
 
-      letter-spacing:
-        -.065em;
+      letter-spacing: -.065em !important;
     }
-
 
     .hero-copy h1 span {
 
@@ -427,366 +327,248 @@
           90deg,
           var(--text),
           var(--accent),
-          var(--accent-2)
+          var(--green)
         );
 
-      -webkit-background-clip:
-        text;
+      -webkit-background-clip: text;
+      background-clip: text;
 
-      background-clip:
-        text;
-
-      color:
-        transparent;
+      color: transparent;
     }
-
 
     .hero-copy p {
 
-      max-width:
-        690px;
+      max-width: 680px;
 
-      color:
-        var(--muted);
+      margin: 26px 0 !important;
 
-      font-size:
-        14px;
+      color: var(--muted) !important;
 
-      line-height:
-        1.85;
-
-      margin:
-        28px 0;
+      font-size: 14px !important;
+      line-height: 1.8 !important;
     }
 
-
-    /* ==============================
-       FUTURISTIC BUTTONS
-    ============================== */
+    /* =========================================================
+       BUTTONS
+    ========================================================= */
 
     .hero-actions {
 
-      display:
-        flex;
+      display: flex !important;
 
-      flex-wrap:
-        wrap;
+      flex-wrap: wrap;
 
-      gap:
-        10px;
+      gap: 9px !important;
     }
-
 
     .action-btn {
 
       appearance: none;
 
-      display:
-        inline-flex;
+      min-height: 46px;
 
-      align-items:
-        center;
+      padding: 0 18px !important;
 
-      justify-content:
-        center;
-
-      min-height:
-        46px;
-
-      padding:
-        0 18px;
-
-      border-radius:
-        999px;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
 
       border:
-        1px solid var(--border);
+        1px solid var(--stroke2) !important;
+
+      border-radius:
+        var(--r-pill) !important;
 
       background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.10),
-          rgba(255,255,255,.045)
-        );
+        rgba(255,255,255,.06) !important;
 
       color:
-        var(--text);
+        var(--text) !important;
 
-      text-decoration:
-        none;
+      text-decoration: none !important;
 
-      font-size:
-        9px;
+      font-size: 9px !important;
+      font-weight: 900 !important;
+      letter-spacing: .11em !important;
 
-      font-weight:
-        900;
-
-      letter-spacing:
-        .12em;
-
-      cursor:
-        pointer;
-
-      box-shadow:
-        inset 0 1px rgba(255,255,255,.10),
-        0 8px 28px rgba(0,0,0,.12);
+      cursor: pointer;
 
       transition:
-        transform var(--transition),
-        background var(--transition),
-        border-color var(--transition),
-        box-shadow var(--transition);
+        transform .18s ease,
+        background .18s ease,
+        border-color .18s ease,
+        box-shadow .18s ease !important;
     }
-
 
     .action-btn:hover {
 
       transform:
-        translateY(-2px);
+        translateY(-2px) !important;
 
       background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.16),
-          rgba(255,255,255,.07)
-        );
+        rgba(255,255,255,.11) !important;
 
       border-color:
-        var(--border-strong);
+        var(--stroke2) !important;
 
       box-shadow:
-        inset 0 1px rgba(255,255,255,.12),
-        0 12px 36px rgba(0,0,0,.18);
+        0 10px 30px rgba(0,0,0,.15);
     }
-
 
     .action-btn.primary {
 
-      background:
-        white;
+      color: #08090b !important;
 
-      color:
-        #08090b;
+      background: #fff !important;
 
-      border-color:
-        white;
+      border-color: #fff !important;
     }
-
 
     .action-btn.primary:hover {
-
-      background:
-        #f4f5f7;
-
-      box-shadow:
-        0 12px 40px rgba(255,255,255,.10);
+      background: #f2f3f5 !important;
     }
 
-
-    /* ==============================
-       HERO RADAR
-    ============================== */
+    /* =========================================================
+       RADAR
+    ========================================================= */
 
     .hero-visual {
 
-      width:
-        min(390px, 34vw);
+      width: 360px;
+      aspect-ratio: 1;
 
-      aspect-ratio:
-        1;
+      flex-shrink: 0;
 
-      flex-shrink:
-        0;
+      position: relative;
 
-      display:
-        grid;
+      display: grid;
 
-      place-items:
-        center;
-
-      position:
-        relative;
+      place-items: center;
     }
-
 
     .radar-ring {
 
-      position:
-        absolute;
+      position: absolute;
 
       border:
         1px solid rgba(255,255,255,.11);
 
-      border-radius:
-        50%;
+      border-radius: 50%;
     }
-
 
     .radar-one {
-      width: 44%;
-      height: 44%;
+      width: 45%;
+      height: 45%;
     }
-
 
     .radar-two {
       width: 68%;
       height: 68%;
     }
 
-
     .radar-three {
       width: 94%;
       height: 94%;
     }
 
-
     .radar-core {
 
-      width:
-        35%;
+      position: relative;
 
-      aspect-ratio:
-        1;
+      width: 34%;
+      aspect-ratio: 1;
 
-      border-radius:
-        50%;
-
-      display:
-        grid;
-
-      place-items:
-        center;
-
-      position:
-        relative;
-
-      overflow:
-        hidden;
+      display: grid;
+      place-items: center;
 
       border:
-        1px solid rgba(120,255,210,.24);
+        1px solid rgba(110,255,200,.25);
+
+      border-radius: 50%;
 
       background:
         radial-gradient(
           circle,
-          rgba(110,255,190,.16),
-          rgba(80,120,255,.07),
-          transparent 72%
+          rgba(110,255,200,.15),
+          rgba(100,140,255,.08),
+          transparent 70%
         );
 
       box-shadow:
-        0 0 60px rgba(100,255,190,.08);
-    }
+        0 0 55px rgba(100,255,190,.08);
 
+      overflow: hidden;
+    }
 
     .radar-core::before {
 
-      content:
-        "";
+      content: "";
 
-      position:
-        absolute;
+      position: absolute;
 
-      width:
-        160%;
-
-      height:
-        2px;
+      width: 160%;
+      height: 2px;
 
       background:
         linear-gradient(
           90deg,
           transparent,
-          var(--accent-2),
+          var(--green),
           transparent
         );
 
       animation:
-        sweep 2.8s linear infinite;
+        radarSweep 3s linear infinite;
     }
-
 
     .radar-core span {
 
-      position:
-        relative;
+      position: relative;
+      z-index: 2;
 
-      z-index:
-        2;
+      font-size: 25px;
+      font-weight: 900;
 
-      font-size:
-        25px;
-
-      font-weight:
-        900;
-
-      letter-spacing:
-        -.08em;
+      letter-spacing: -.08em;
     }
 
-
-    @keyframes sweep {
-
-      from {
-        transform:
-          rotate(0deg);
-      }
-
-      to {
-        transform:
-          rotate(360deg);
-      }
+    @keyframes radarSweep {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
-
-    /* ==============================
+    /* =========================================================
        STATS
-    ============================== */
+    ========================================================= */
 
     .stats {
 
-      display:
-        grid;
+      display: grid !important;
 
       grid-template-columns:
-        repeat(4, 1fr);
+        repeat(4, minmax(0, 1fr)) !important;
 
-      gap:
-        12px;
+      gap: 12px !important;
 
-      margin-top:
-        16px;
+      margin-top: 14px !important;
     }
-
 
     .stat {
 
-      padding:
-        22px;
+      padding: 21px !important;
 
-      border:
-        1px solid var(--border);
+      border: 1px solid var(--stroke) !important;
 
-      border-radius:
-        22px;
+      border-radius: 21px !important;
 
-      background:
-        var(--panel);
+      background: var(--panel) !important;
 
-      backdrop-filter:
-        blur(20px);
-
-      -webkit-backdrop-filter:
-        blur(20px);
-
-      box-shadow:
-        var(--shadow);
+      box-shadow: var(--shadow);
 
       transition:
-        transform var(--transition),
-        background var(--transition);
+        transform .18s ease,
+        background .18s ease;
     }
-
 
     .stat:hover {
 
@@ -794,207 +576,126 @@
         translateY(-2px);
 
       background:
-        var(--panel-hover);
+        var(--panel);
     }
-
 
     .stat strong {
 
-      display:
-        block;
+      display: block;
 
-      font-size:
-        26px;
+      color: var(--text) !important;
 
-      font-weight:
-        900;
-
-      letter-spacing:
-        -.04em;
+      font-size: 26px !important;
+      font-weight: 900 !important;
     }
-
 
     .stat span {
 
-      display:
-        block;
+      display: block;
 
-      margin-top:
-        5px;
+      margin-top: 5px;
 
-      color:
-        var(--muted);
+      color: var(--muted) !important;
 
-      font-size:
-        10px;
+      font-size: 10px !important;
     }
 
-
-    /* ==============================
+    /* =========================================================
        HEADERS
-    ============================== */
+    ========================================================= */
 
-    header {
+    .glass-panel > header,
+    .glass-panel > .ai-header {
 
-      position:
-        relative;
+      position: relative;
 
-      z-index:
-        2;
+      z-index: 2;
     }
-
 
     header h1,
     header h2 {
 
-      margin:
-        0;
+      color: var(--text) !important;
 
-      letter-spacing:
-        -.045em;
+      letter-spacing: -.04em !important;
     }
-
-
-    header h1 {
-      font-size:
-        clamp(34px, 4vw, 58px);
-    }
-
-
-    header h2 {
-      font-size:
-        clamp(24px, 3vw, 34px);
-    }
-
 
     header p {
 
-      max-width:
-        750px;
-
-      color:
-        var(--muted);
-
-      font-size:
-        12px;
-
-      line-height:
-        1.75;
+      color: var(--muted) !important;
     }
 
-
-    /* ==============================
+    /* =========================================================
        SEARCH
-    ============================== */
+    ========================================================= */
 
     .toolbar {
 
-      display:
-        flex;
+      position: relative;
+      z-index: 2;
 
-      flex-wrap:
-        wrap;
+      display: flex !important;
 
-      gap:
-        8px;
+      flex-wrap: wrap;
 
-      margin-top:
-        20px;
+      gap: 8px !important;
 
-      position:
-        relative;
-
-      z-index:
-        2;
+      margin-top: 18px !important;
     }
-
 
     .search-wrap {
 
-      flex:
-        1 1 320px;
+      flex: 1 1 320px;
 
-      display:
-        flex;
+      position: relative;
 
-      position:
-        relative;
+      min-width: 0;
     }
-
 
     .search-box {
 
-      width:
-        100%;
+      width: 100% !important;
 
-      min-height:
-        48px;
+      min-height: 46px;
 
       padding:
-        0 48px 0 16px;
+        0 46px 0 16px !important;
 
       border:
-        1px solid var(--border);
+        1px solid var(--stroke) !important;
 
       border-radius:
-        999px;
+        var(--r-pill) !important;
 
-      outline:
-        none;
+      outline: none !important;
 
       background:
-        rgba(255,255,255,.045);
+        rgba(255,255,255,.045) !important;
 
       color:
-        var(--text);
+        var(--text) !important;
 
       font-size:
-        12px;
-
-      transition:
-        border-color var(--transition),
-        background var(--transition);
+        11px !important;
     }
-
 
     .light-mode .search-box {
-      background:
-        rgba(255,255,255,.75);
+      background: rgba(255,255,255,.80) !important;
     }
-
-
-    .search-box:focus {
-
-      border-color:
-        rgba(110,170,255,.50);
-
-      background:
-        rgba(255,255,255,.075);
-    }
-
 
     .clear-search {
 
-      position:
-        absolute;
+      position: absolute;
 
-      right:
-        7px;
+      top: 6px;
+      right: 6px;
 
-      top:
-        7px;
+      width: 34px;
+      height: 34px;
 
-      width:
-        34px;
+      border: 0;
 
-      height:
-        34px;
-
-      border:
-        0;
-
-      border-radius:
-        50%;
+      border-radius: 50%;
 
       background:
         rgba(255,255,255,.08);
@@ -1002,112 +703,77 @@
       color:
         var(--muted);
 
-      cursor:
-        pointer;
+      cursor: pointer;
     }
-
 
     .filter-btn {
 
-      min-height:
-        44px;
+      min-height: 44px;
 
-      padding:
-        0 15px;
+      padding: 0 15px !important;
 
       border:
-        1px solid var(--border);
+        1px solid var(--stroke) !important;
 
       border-radius:
-        999px;
-
-      color:
-        var(--muted);
+        var(--r-pill) !important;
 
       background:
-        rgba(255,255,255,.045);
+        var(--panel2) !important;
 
-      font-size:
-        9px;
+      color:
+        var(--muted) !important;
 
-      font-weight:
-        900;
+      font-size: 9px !important;
+      font-weight: 900 !important;
 
-      letter-spacing:
-        .12em;
+      letter-spacing: .10em !important;
 
-      cursor:
-        pointer;
-
-      transition:
-        all var(--transition);
+      cursor: pointer;
     }
-
 
     .filter-btn:hover,
     .filter-btn.active {
 
       color:
-        var(--text);
+        var(--text) !important;
 
       background:
-        rgba(255,255,255,.10);
+        rgba(255,255,255,.10) !important;
 
       border-color:
-        var(--border-strong);
-
-      transform:
-        translateY(-1px);
+        var(--stroke2) !important;
     }
 
-
-    /* ==============================
+    /* =========================================================
        TABLE
-    ============================== */
+    ========================================================= */
 
     .registry-table {
 
-      width:
-        100%;
+      position: relative;
 
-      margin-top:
-        18px;
+      z-index: 2;
 
-      border-collapse:
-        separate;
+      width: 100% !important;
 
-      border-spacing:
-        0 7px;
+      margin-top: 18px !important;
 
-      position:
-        relative;
+      border-collapse: separate !important;
 
-      z-index:
-        2;
+      border-spacing: 0 7px !important;
     }
-
 
     .registry-table thead th {
 
-      color:
-        var(--muted-2);
+      color: var(--muted2) !important;
 
-      font-size:
-        8px;
+      font-size: 8px !important;
 
-      letter-spacing:
-        .15em;
+      letter-spacing: .13em !important;
 
-      font-weight:
-        900;
-
-      text-align:
-        left;
-
-      padding:
-        8px 12px;
+      text-align: left;
     }
-
 
     .registry-table tbody tr {
 
@@ -1115,106 +781,142 @@
         rgba(255,255,255,.035);
 
       transition:
-        transform var(--transition),
-        background var(--transition);
+        transform .18s ease,
+        background .18s ease;
     }
-
 
     .registry-table tbody tr:hover {
 
       background:
-        rgba(255,255,255,.075);
+        rgba(255,255,255,.08);
 
       transform:
-        translateX(3px);
+        translateX(2px);
     }
-
 
     .registry-table td {
 
-      padding:
-        14px 12px;
+      color:
+        var(--text) !important;
 
       border-top:
-        1px solid var(--border);
+        1px solid var(--stroke) !important;
 
       border-bottom:
-        1px solid var(--border);
+        1px solid var(--stroke) !important;
 
       font-size:
-        11px;
+        10px !important;
     }
-
 
     .registry-table td:first-child {
-
       border-left:
-        1px solid var(--border);
+        1px solid var(--stroke) !important;
 
       border-radius:
-        15px 0 0 15px;
+        14px 0 0 14px;
     }
-
 
     .registry-table td:last-child {
-
       border-right:
-        1px solid var(--border);
+        1px solid var(--stroke) !important;
 
       border-radius:
-        0 15px 15px 0;
+        0 14px 14px 0;
     }
 
-
-    /* ==============================
-       AI PANEL
-    ============================== */
-
-    .ai-panel {
-
-      min-height:
-        300px;
-    }
-
+    /* =========================================================
+       AI SECTION
+    ========================================================= */
 
     .ai-header {
 
-      display:
-        flex;
+      display: flex;
 
-      justify-content:
-        space-between;
+      justify-content: space-between;
 
-      align-items:
-        flex-start;
+      align-items: flex-start;
 
-      gap:
-        20px;
-
-      position:
-        relative;
-
-      z-index:
-        2;
+      gap: 20px;
     }
-
 
     .ai-status {
 
-      flex-shrink:
-        0;
+      flex-shrink: 0;
 
-      display:
-        inline-flex;
+      display: inline-flex;
 
-      align-items:
-        center;
+      align-items: center;
 
-      gap:
-        8px;
+      gap: 8px;
 
       color:
-        var(--accent-2);
+        var(--green);
+
+      font-size: 8px;
+
+      font-weight: 900;
+
+      letter-spacing: .10em;
+    }
+
+    .ai-status span {
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background:
+        var(--green);
+
+      box-shadow:
+        0 0 14px var(--green);
+    }
+
+    .ai-console {
+
+      position: relative;
+
+      z-index: 2;
+
+      margin-top: 18px;
+
+      padding: 14px;
+
+      border:
+        1px solid var(--stroke);
+
+      border-radius: 21px;
+
+      background:
+        rgba(0,0,0,.16);
+    }
+
+    .light-mode .ai-console {
+      background:
+        rgba(255,255,255,.40);
+    }
+
+    .ai-message {
+
+      padding: 13px 15px;
+
+      margin-bottom: 8px;
+
+      border:
+        1px solid var(--stroke);
+
+      border-radius: 16px;
+
+      background:
+        rgba(255,255,255,.035);
+    }
+
+    .ai-label {
+
+      color:
+        var(--muted2);
 
       font-size:
         8px;
@@ -1224,104 +926,14 @@
 
       letter-spacing:
         .12em;
-    }
-
-
-    .ai-status span {
-
-      width:
-        7px;
-
-      height:
-        7px;
-
-      border-radius:
-        50%;
-
-      background:
-        var(--accent-2);
-
-      box-shadow:
-        0 0 15px var(--accent-2);
-    }
-
-
-    .ai-console {
-
-      position:
-        relative;
-
-      z-index:
-        2;
-
-      margin-top:
-        20px;
-
-      padding:
-        16px;
-
-      border:
-        1px solid var(--border);
-
-      border-radius:
-        24px;
-
-      background:
-        rgba(0,0,0,.16);
-    }
-
-
-    .light-mode .ai-console {
-      background:
-        rgba(255,255,255,.36);
-    }
-
-
-    .ai-message {
-
-      max-width:
-        820px;
-
-      padding:
-        14px 16px;
-
-      margin-bottom:
-        9px;
-
-      border:
-        1px solid var(--border);
-
-      border-radius:
-        17px;
-
-      background:
-        rgba(255,255,255,.04);
-    }
-
-
-    .ai-label {
-
-      color:
-        var(--muted-2);
-
-      font-size:
-        8px;
-
-      font-weight:
-        900;
-
-      letter-spacing:
-        .14em;
 
       margin-bottom:
         6px;
     }
 
-
     .ai-message p {
 
-      margin:
-        0;
+      margin: 0;
 
       color:
         var(--muted);
@@ -1330,9 +942,8 @@
         11px;
 
       line-height:
-        1.7;
+        1.65;
     }
-
 
     .ai-input {
 
@@ -1343,32 +954,27 @@
         8px;
 
       margin-top:
-        12px;
+        10px;
     }
-
 
     .ai-input input {
 
-      flex:
-        1;
+      flex: 1;
 
-      min-width:
-        0;
+      min-width: 0;
 
-      height:
-        48px;
+      height: 46px;
 
       padding:
         0 16px;
 
       border:
-        1px solid var(--border);
+        1px solid var(--stroke);
 
       border-radius:
-        999px;
+        var(--r-pill);
 
-      outline:
-        none;
+      outline: none;
 
       background:
         rgba(255,255,255,.05);
@@ -1377,30 +983,21 @@
         var(--text);
     }
 
-
-    /* ==============================
+    /* =========================================================
        UPLOAD
-    ============================== */
+    ========================================================= */
 
     .upload-zone {
 
-      position:
-        relative;
+      position: relative;
 
-      z-index:
-        2;
+      z-index: 2;
 
       min-height:
-        240px;
+        220px;
 
       margin-top:
-        20px;
-
-      border:
-        1px dashed var(--border-strong);
-
-      border-radius:
-        26px;
+        18px;
 
       display:
         flex;
@@ -1417,22 +1014,27 @@
       text-align:
         center;
 
+      border:
+        1px dashed var(--stroke2);
+
+      border-radius:
+        24px;
+
       background:
         radial-gradient(
-          circle at center,
-          rgba(110,170,255,.055),
-          transparent 68%
+          circle,
+          rgba(110,170,255,.05),
+          transparent 70%
         );
 
       cursor:
         pointer;
 
       transition:
-        transform var(--transition),
-        border-color var(--transition),
-        background var(--transition);
+        transform .18s ease,
+        border-color .18s ease,
+        background .18s ease;
     }
-
 
     .upload-zone:hover,
     .upload-zone.dragging {
@@ -1441,68 +1043,50 @@
         translateY(-2px);
 
       border-color:
-        rgba(110,255,190,.55);
+        rgba(110,255,190,.50);
 
       background:
         radial-gradient(
-          circle at center,
-          rgba(110,255,190,.10),
-          transparent 68%
+          circle,
+          rgba(110,255,190,.09),
+          transparent 70%
         );
     }
 
-
     .upload-symbol {
 
-      width:
-        62px;
+      width: 58px;
+      height: 58px;
 
-      height:
-        62px;
+      display: grid;
+      place-items: center;
 
-      display:
-        grid;
-
-      place-items:
-        center;
-
-      border-radius:
-        20px;
+      border-radius: 18px;
 
       background:
         rgba(255,255,255,.07);
 
       border:
-        1px solid var(--border);
+        1px solid var(--stroke);
 
-      font-size:
-        28px;
-
-      font-weight:
-        300;
+      font-size: 26px;
     }
-
 
     .upload-zone h3 {
 
       margin:
-        15px 0 5px;
+        14px 0 5px;
 
       font-size:
-        12px;
-
-      font-weight:
-        900;
+        11px;
 
       letter-spacing:
-        .14em;
+        .13em;
     }
-
 
     .upload-zone p {
 
-      margin:
-        0;
+      margin: 0;
 
       color:
         var(--muted);
@@ -1511,19 +1095,17 @@
         10px;
     }
 
-
     .upload-zone span {
 
       margin-top:
-        10px;
+        9px;
 
       color:
-        var(--muted-2);
+        var(--muted2);
 
       font-size:
         8px;
     }
-
 
     .uploaded-files {
 
@@ -1533,20 +1115,19 @@
       z-index:
         2;
 
-      margin-top:
-        12px;
-
       display:
         grid;
 
       gap:
         8px;
+
+      margin-top:
+        10px;
     }
 
-
-    /* ==============================
+    /* =========================================================
        INFO CARDS
-    ============================== */
+    ========================================================= */
 
     .card-grid {
 
@@ -1566,36 +1147,27 @@
         12px;
 
       margin-top:
-        20px;
+        18px;
     }
-
 
     .card {
 
       padding:
-        21px;
+        20px;
 
       border:
-        1px solid var(--border);
+        1px solid var(--stroke);
 
       border-radius:
-        22px;
+        21px;
 
       background:
         var(--panel);
 
-      backdrop-filter:
-        blur(18px);
-
-      -webkit-backdrop-filter:
-        blur(18px);
-
       transition:
-        transform var(--transition),
-        background var(--transition),
-        border-color var(--transition);
+        transform .18s ease,
+        background .18s ease;
     }
-
 
     .card:hover {
 
@@ -1603,25 +1175,20 @@
         translateY(-3px);
 
       background:
-        var(--panel-hover);
-
-      border-color:
-        var(--border-strong);
+        var(--panel);
     }
-
 
     .card h3 {
 
       margin:
-        0 0 9px;
+        0 0 8px;
+
+      color:
+        var(--text);
 
       font-size:
-        15px;
-
-      letter-spacing:
-        -.02em;
+        14px;
     }
-
 
     .card p {
 
@@ -1632,57 +1199,56 @@
         var(--muted);
 
       font-size:
-        11px;
+        10px;
 
       line-height:
         1.75;
     }
 
-
-    /* ==============================
-       AI FLOATING WINDOW
-    ============================== */
+    /* =========================================================
+       FLOATING AI BUTTON
+    ========================================================= */
 
     .ai-launch {
 
       position:
-        fixed;
+        fixed !important;
 
       right:
-        22px;
+        20px !important;
 
       bottom:
-        22px;
+        20px !important;
 
       z-index:
-        10000;
+        9500 !important;
 
       min-height:
-        52px;
+        50px;
 
       padding:
         0 18px;
 
       border:
-        1px solid rgba(255,255,255,.17);
+        1px solid rgba(255,255,255,.15);
 
       border-radius:
-        999px;
+        var(--r-pill);
 
       background:
-        rgba(8,10,13,.88);
+        rgba(5,7,10,.90);
 
       color:
-        white;
-
-      backdrop-filter:
-        blur(22px);
-
-      -webkit-backdrop-filter:
-        blur(22px);
+        #fff;
 
       box-shadow:
-        0 16px 45px rgba(0,0,0,.35);
+        0 16px 40px rgba(0,0,0,.35);
+
+      backdrop-filter:
+        blur(18px);
+
+      -webkit-backdrop-filter:
+        blur(18px);
 
       font-size:
         9px;
@@ -1691,68 +1257,56 @@
         900;
 
       letter-spacing:
-        .12em;
+        .11em;
 
       cursor:
         pointer;
-
-      transition:
-        transform var(--transition),
-        box-shadow var(--transition);
     }
 
-
-    .ai-launch:hover {
-
-      transform:
-        translateY(-3px)
-        scale(1.02);
-
-      box-shadow:
-        0 20px 55px rgba(0,0,0,.45);
-    }
-
+    /* =========================================================
+       AI WINDOW
+    ========================================================= */
 
     .ai-window {
 
       position:
-        fixed;
+        fixed !important;
 
       right:
-        22px;
+        20px !important;
 
       bottom:
-        88px;
-
-      width:
-        min(390px, calc(100vw - 28px));
+        82px !important;
 
       z-index:
-        10001;
+        9600 !important;
+
+      width:
+        min(390px, calc(100vw - 24px));
 
       border:
-        1px solid rgba(255,255,255,.15);
+        1px solid rgba(255,255,255,.14);
 
       border-radius:
-        28px;
-
-      background:
-        rgba(7,9,12,.92);
-
-      color:
-        white;
-
-      backdrop-filter:
-        blur(32px) saturate(150%);
-
-      -webkit-backdrop-filter:
-        blur(32px) saturate(150%);
-
-      box-shadow:
-        0 28px 90px rgba(0,0,0,.55);
+        26px;
 
       overflow:
         hidden;
+
+      background:
+        rgba(7,9,12,.94);
+
+      color:
+        #fff;
+
+      box-shadow:
+        0 30px 90px rgba(0,0,0,.55);
+
+      backdrop-filter:
+        blur(28px) saturate(150%);
+
+      -webkit-backdrop-filter:
+        blur(28px) saturate(150%);
 
       opacity:
         0;
@@ -1761,14 +1315,13 @@
         none;
 
       transform:
-        translateY(18px)
-        scale(.97);
+        translateY(14px)
+        scale(.98);
 
       transition:
-        opacity .22s ease,
-        transform .22s ease;
+        opacity .2s ease,
+        transform .2s ease;
     }
-
 
     .ai-window.open {
 
@@ -1783,7 +1336,6 @@
         scale(1);
     }
 
-
     .ai-window-head {
 
       display:
@@ -1795,16 +1347,12 @@
       justify-content:
         space-between;
 
-      gap:
-        14px;
-
       padding:
-        16px 17px;
+        15px 16px;
 
       border-bottom:
-        1px solid rgba(255,255,255,.09);
+        1px solid rgba(255,255,255,.08);
     }
-
 
     .ai-window-title {
 
@@ -1818,7 +1366,6 @@
         3px;
     }
 
-
     .ai-window-title strong {
 
       font-size:
@@ -1828,11 +1375,10 @@
         .10em;
     }
 
-
     .ai-window-title span {
 
       color:
-        #6effc5;
+        var(--green);
 
       font-size:
         7px;
@@ -1841,9 +1387,8 @@
         900;
 
       letter-spacing:
-        .12em;
+        .10em;
     }
-
 
     .ai-close {
 
@@ -1863,7 +1408,7 @@
         rgba(255,255,255,.07);
 
       color:
-        white;
+        #fff;
 
       cursor:
         pointer;
@@ -1872,24 +1417,22 @@
         17px;
     }
 
-
     .ai-window-body {
 
       padding:
         22px;
     }
 
-
     .ai-orb {
 
       width:
-        58px;
+        60px;
 
       height:
-        58px;
+        60px;
 
       margin:
-        0 auto 16px;
+        0 auto 15px;
 
       display:
         grid;
@@ -1897,48 +1440,46 @@
       place-items:
         center;
 
+      border:
+        1px solid rgba(110,255,190,.22);
+
       border-radius:
         50%;
 
       background:
         radial-gradient(
           circle,
-          rgba(110,255,190,.20),
-          rgba(90,130,255,.09),
-          transparent
+          rgba(110,255,190,.18),
+          rgba(90,130,255,.08),
+          transparent 70%
         );
 
-      border:
-        1px solid rgba(110,255,190,.22);
-
-      box-shadow:
-        0 0 40px rgba(110,255,190,.08);
-
       font-size:
-        17px;
+        18px;
 
       font-weight:
         900;
     }
 
-
     .ai-window-body h2 {
-
-      text-align:
-        center;
 
       margin:
         0;
+
+      text-align:
+        center;
 
       font-size:
         18px;
     }
 
-
     .ai-window-body p {
 
+      margin:
+        9px 0 16px;
+
       color:
-        rgba(255,255,255,.58);
+        rgba(255,255,255,.56);
 
       font-size:
         10px;
@@ -1948,11 +1489,7 @@
 
       text-align:
         center;
-
-      margin:
-        10px 0 17px;
     }
-
 
     .ai-provider {
 
@@ -1966,16 +1503,16 @@
         8px;
 
       border:
-        1px solid rgba(255,255,255,.12);
+        1px solid rgba(255,255,255,.11);
 
       border-radius:
-        16px;
+        15px;
 
       background:
         rgba(255,255,255,.055);
 
       color:
-        white;
+        #fff;
 
       cursor:
         pointer;
@@ -1990,10 +1527,9 @@
         .10em;
 
       transition:
-        transform var(--transition),
-        background var(--transition);
+        transform .18s ease,
+        background .18s ease;
     }
-
 
     .ai-provider:hover {
 
@@ -2004,82 +1540,96 @@
         rgba(255,255,255,.10);
     }
 
-
     .ai-window-note {
 
       margin-top:
-        15px;
+        14px;
 
       color:
-        rgba(255,255,255,.34);
+        rgba(255,255,255,.32);
 
       font-size:
         8px;
 
       line-height:
-        1.6;
+        1.55;
 
       text-align:
         center;
     }
 
-
-    /* ==============================
+    /* =========================================================
        FOOTER
-    ============================== */
+    ========================================================= */
 
-    footer {
+    body > footer {
+
+      position:
+        relative !important;
+
+      left:
+        auto !important;
+
+      right:
+        auto !important;
+
+      bottom:
+        auto !important;
 
       width:
-        min(1420px, calc(100% - 28px));
+        min(1400px, calc(100% - 28px)) !important;
 
       margin:
-        0 auto 30px;
+        0 auto 28px !important;
+
+      padding:
+        16px 2px !important;
 
       display:
-        flex;
+        flex !important;
+
+      align-items:
+        center !important;
 
       justify-content:
-        space-between;
+        space-between !important;
 
       gap:
         20px;
 
+      border-top:
+        1px solid var(--stroke) !important;
+
+      background:
+        transparent !important;
+
       color:
-        var(--muted-2);
+        var(--muted2) !important;
 
       font-size:
-        8px;
+        8px !important;
 
       line-height:
         1.6;
+
+      box-shadow:
+        none !important;
     }
 
+    /* =========================================================
+       MODAL
+    ========================================================= */
 
-    /* ==============================
-       RESPONSIVE
-    ============================== */
-
-    @media (max-width: 1050px) {
-
-      .hero-visual {
-        width:
-          300px;
-      }
-
-      .card-grid {
-        grid-template-columns:
-          repeat(2, minmax(0, 1fr));
-      }
-
-      .stats {
-        grid-template-columns:
-          repeat(2, 1fr);
-      }
+    .modal-backdrop {
+      z-index:
+        10000 !important;
     }
 
+    /* =========================================================
+       MOBILE
+    ========================================================= */
 
-    @media (max-width: 820px) {
+    @media (max-width: 900px) {
 
       .hero-visual {
         display:
@@ -2088,70 +1638,70 @@
 
       .glass-hero {
         min-height:
-          auto;
+          auto !important;
+      }
+
+      .stats {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr)) !important;
+      }
+
+      .card-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+
+    }
+
+    @media (max-width: 650px) {
+
+      body > nav {
+        height:
+          64px !important;
+
+        padding:
+          0 12px !important;
+      }
+
+      .nav-links {
+        display:
+          none !important;
+      }
+
+      body > .container {
+        width:
+          calc(100% - 14px) !important;
+
+        margin-top:
+          8px !important;
+      }
+
+      .glass-hero {
+        padding:
+          30px 22px !important;
+
+        border-radius:
+          25px !important;
+      }
+
+      .hero-copy h1 {
+        font-size:
+          48px !important;
+      }
+
+      .stats {
+        grid-template-columns:
+          1fr 1fr !important;
+      }
+
+      .card-grid {
+        grid-template-columns:
+          1fr !important;
       }
 
       .ai-header {
         flex-direction:
           column;
-      }
-
-      .nav-links a {
-        font-size:
-          8px;
-
-        padding:
-          9px 9px;
-      }
-    }
-
-
-    @media (max-width: 620px) {
-
-      nav {
-        height:
-          65px;
-      }
-
-      .nav-links {
-        display:
-          none;
-      }
-
-      .container {
-        width:
-          min(100% - 14px, 1420px);
-
-        margin-top:
-          8px;
-      }
-
-      .glass-hero {
-        padding:
-          28px 22px;
-
-        border-radius:
-          27px;
-      }
-
-      .hero-copy h1 {
-        font-size:
-          48px;
-      }
-
-      .stats {
-        grid-template-columns:
-          1fr 1fr;
-      }
-
-      .stat {
-        padding:
-          17px;
-      }
-
-      .card-grid {
-        grid-template-columns:
-          1fr;
       }
 
       .ai-input {
@@ -2164,9 +1714,12 @@
           100%;
       }
 
-      footer {
+      body > footer {
         flex-direction:
-          column;
+          column !important;
+
+        align-items:
+          flex-start !important;
       }
 
       .registry-table {
@@ -2175,12 +1728,6 @@
 
         overflow-x:
           auto;
-      }
-
-      .registry-table th,
-      .registry-table td {
-        white-space:
-          nowrap;
       }
     }
 
@@ -2192,23 +1739,19 @@
 
 
 <!-- =========================================================
-     NAVIGATION
+     TOP NAV
 ========================================================= -->
 
 <nav>
 
   <div class="logo-area">
-
     <a href="index.html">
-
       <img
         class="logo-image"
         src="assets/aviation-inquest-logo.png"
         alt="Aviation Inquest logo"
       >
-
     </a>
-
   </div>
 
 
@@ -2222,9 +1765,7 @@
       HOME
     </a>
 
-    <a
-      href="#incident-registry"
-    >
+    <a href="#incident-registry">
       REGISTRY
     </a>
 
@@ -2249,8 +1790,7 @@
     id="themeToggle"
     class="theme-toggle"
     type="button"
-    aria-label="Toggle light and dark mode"
-    title="Toggle theme"
+    aria-label="Toggle theme"
   >
     ◐
   </button>
@@ -2283,16 +1823,16 @@
 
 
       <p>
-        A digital aviation research archive for accident records,
-        investigation files, aircraft histories, timelines, and
-        evidence analysis.
+        Aviation Inquest is a digital research archive for aviation
+        accidents, investigations, aircraft histories, timelines,
+        evidence, and historical analysis.
       </p>
 
 
       <div class="hero-actions">
 
         <button
-          id="openAIFromHero"
+          id="heroOpenAI"
           class="action-btn primary"
           type="button"
         >
@@ -2301,16 +1841,16 @@
 
 
         <a
-          href="#evidence-upload"
           class="action-btn"
+          href="#evidence-upload"
         >
           UPLOAD EVIDENCE
         </a>
 
 
         <a
-          href="#incident-registry"
           class="action-btn"
+          href="#incident-registry"
         >
           VIEW REGISTRY
         </a>
@@ -2342,54 +1882,23 @@
   <section class="stats">
 
     <div class="stat">
-
-      <strong id="resultCount">
-        10
-      </strong>
-
-      <span>
-        Visible records
-      </span>
-
+      <strong id="resultCount">10</strong>
+      <span>Visible records</span>
     </div>
 
-
     <div class="stat">
-
-      <strong>
-        2026
-      </strong>
-
-      <span>
-        Registry year
-      </span>
-
+      <strong>2026</strong>
+      <span>Registry year</span>
     </div>
 
-
     <div class="stat">
-
-      <strong>
-        LIVE
-      </strong>
-
-      <span>
-        Local archive search
-      </span>
-
+      <strong>LIVE</strong>
+      <span>Local archive</span>
     </div>
 
-
     <div class="stat">
-
-      <strong>
-        AI
-      </strong>
-
-      <span>
-        Investigator access
-      </span>
-
+      <strong>AI</strong>
+      <span>Investigator access</span>
     </div>
 
   </section>
@@ -2415,8 +1924,8 @@
       </h2>
 
       <p>
-        Search by date, aircraft, registration, location,
-        classification, or documentation.
+        Search by date, location, registration, aircraft model,
+        classification, or investigation information.
       </p>
 
     </header>
@@ -2433,7 +1942,6 @@
           autocomplete="off"
           placeholder="Search the aviation registry..."
         >
-
 
         <button
           id="clearSearch"
@@ -2502,7 +2010,6 @@
 
       </thead>
 
-
       <tbody id="registryBody"></tbody>
 
     </table>
@@ -2524,7 +2031,7 @@
 
   <section
     id="ai-investigator"
-    class="glass-panel ai-panel"
+    class="glass-panel"
   >
 
     <div class="ai-header">
@@ -2540,19 +2047,16 @@
         </h2>
 
         <p>
-          Use a free external AI assistant to research incidents,
-          summarize files, analyze timelines, or organize notes.
+          Search the current registry or open a free external AI
+          assistant for extended research.
         </p>
 
       </header>
 
 
       <div class="ai-status">
-
         <span></span>
-
         SYSTEM READY
-
       </div>
 
     </div>
@@ -2567,8 +2071,8 @@
         </div>
 
         <p>
-          Your investigator console is ready. Ask about a case
-          or open ChatGPT or Gemini for a full AI session.
+          Investigator console ready. Search a case, aircraft,
+          location, date, or classification.
         </p>
 
       </div>
@@ -2582,7 +2086,6 @@
           placeholder="Search the registry..."
           autocomplete="off"
         >
-
 
         <button
           id="analyzeQuery"
@@ -2619,9 +2122,8 @@
       </h2>
 
       <p>
-        Drag files into the archive or select them from your device.
-        Files shown here stay in your browser unless you connect a
-        separate upload backend.
+        Add research files, photographs, documents, audio, or
+        other material from your device.
       </p>
 
     </header>
@@ -2636,9 +2138,9 @@
 
 
     <label
-      for="evidenceFiles"
       id="uploadZone"
       class="upload-zone"
+      for="evidenceFiles"
     >
 
       <div class="upload-symbol">
@@ -2685,9 +2187,8 @@
       </h2>
 
       <p>
-        An aviation accident investigation usually reconstructs a
-        sequence of events using multiple categories of evidence.
-        The exact evidence available varies by case.
+        Accident investigations reconstruct what happened by
+        examining several categories of evidence.
       </p>
 
     </header>
@@ -2703,9 +2204,10 @@
         </h3>
 
         <p>
-          Aircraft type, configuration, maintenance history,
-          engines, flight controls, electrical systems,
-          navigation equipment, and warnings may be examined.
+          Investigators may examine aircraft configuration,
+          maintenance history, engines, flight controls,
+          navigation equipment, warnings, and other technical
+          information.
         </p>
 
       </article>
@@ -2718,9 +2220,9 @@
         </h3>
 
         <p>
-          Investigators can reconstruct departure, altitude,
-          speed, routing, communications, deviations,
-          emergency actions, and the final known flight path.
+          The timeline can include departure, altitude, speed,
+          routing, communications, deviations, emergency
+          actions, and the final known flight path.
         </p>
 
       </article>
@@ -2735,7 +2237,7 @@
         <p>
           Visibility, wind, precipitation, icing, turbulence,
           terrain, runway conditions, and other environmental
-          factors may be relevant.
+          conditions may be relevant.
         </p>
 
       </article>
@@ -2749,8 +2251,8 @@
 
         <p>
           Crew workload, procedures, training, communication,
-          air traffic control, dispatch, and operational
-          conditions can be investigated.
+          air traffic control, dispatch, and operating conditions
+          may form part of the investigation.
         </p>
 
       </article>
@@ -2764,9 +2266,8 @@
 
         <p>
           Flight recorders, cockpit voice recordings, wreckage,
-          photographs, radar information, communications,
-          maintenance records, and witness information can
-          contribute to a reconstruction.
+          photographs, radar data, communications, maintenance
+          records, and witness information can contribute evidence.
         </p>
 
       </article>
@@ -2775,47 +2276,19 @@
       <article class="card">
 
         <h3>
-          Findings
+          Final Findings
         </h3>
 
         <p>
           Investigators may identify causes and contributing
-          factors, then issue findings and safety recommendations
-          based on the available evidence.
+          factors and issue findings or safety recommendations
+          based on the evidence available.
         </p>
 
       </article>
 
 
     </div>
-
-  </section>
-
-
-  <!-- =======================================================
-       ABOUT
-  ======================================================== -->
-
-  <section class="glass-panel">
-
-    <header>
-
-      <div class="eyebrow">
-        AVIATION INQUEST
-      </div>
-
-      <h2>
-        A RECORD OF WHAT HAPPENED.
-      </h2>
-
-      <p>
-        Aviation Inquest is intended for public record,
-        historical research, and educational analysis.
-        Archive information may be incomplete or subject to
-        later investigation findings.
-      </p>
-
-    </header>
 
   </section>
 
@@ -2834,15 +2307,14 @@
   </div>
 
   <div>
-    Maintained for public record, research, and educational analysis.
-    AI responses may include mistakes.
+    Public record • Research • Educational analysis
   </div>
 
 </footer>
 
 
 <!-- =========================================================
-     EXISTING APP.JS MODAL
+     EXISTING MODAL HOOKS
 ========================================================= -->
 
 <div
@@ -2858,7 +2330,6 @@
       <h2 id="modalTitle">
         Record
       </h2>
-
 
       <button
         class="close"
@@ -2888,7 +2359,7 @@
 
 
 <!-- =========================================================
-     AI FLOATING BUTTON
+     FLOATING AI BUTTON
 ========================================================= -->
 
 <button
@@ -2901,7 +2372,7 @@
 
 
 <!-- =========================================================
-     AI WINDOW
+     AI POPUP
 ========================================================= -->
 
 <div
@@ -2929,7 +2400,7 @@
       id="closeAI"
       class="ai-close"
       type="button"
-      aria-label="Close AI window"
+      aria-label="Close AI"
     >
       ×
     </button>
@@ -2951,8 +2422,6 @@
 
     <p>
       Choose a free AI service to continue your research.
-      The external service opens separately so your Aviation
-      Inquest API secrets stay completely out of the browser.
     </p>
 
 
@@ -2987,8 +2456,8 @@
 
 
     <div class="ai-window-note">
-      ChatGPT and Gemini are external services and control
-      their own availability, accounts, limits, and responses.
+      External AI services are opened separately and are not
+      controlled by Aviation Inquest.
     </div>
 
   </div>
@@ -2997,27 +2466,25 @@
 
 
 <!-- =========================================================
-     EXISTING APP
+     EXISTING APP.JS
 ========================================================= -->
 
 <script src="app.js"></script>
 
 
 <!-- =========================================================
-     HTML-ONLY INTERACTIONS
+     PAGE INTERACTIONS
 ========================================================= -->
 
 <script>
-
 (function () {
 
-  /* =========================================
+  /* ========================================================
      THEME
-  ========================================= */
+  ======================================================== */
 
   const themeButton =
     document.getElementById("themeToggle");
-
 
   const savedTheme =
     localStorage.getItem(
@@ -3031,11 +2498,13 @@
       "light-mode"
     );
 
-    themeButton.textContent = "☀";
+    themeButton.textContent =
+      "☀";
 
   } else {
 
-    themeButton.textContent = "◐";
+    themeButton.textContent =
+      "◐";
 
   }
 
@@ -3044,7 +2513,7 @@
     "click",
     function () {
 
-      const light =
+      const isLight =
         document.body.classList.toggle(
           "light-mode"
         );
@@ -3052,14 +2521,14 @@
 
       localStorage.setItem(
         "aviation-inquest-theme",
-        light
+        isLight
           ? "light"
           : "dark"
       );
 
 
       themeButton.textContent =
-        light
+        isLight
           ? "☀"
           : "◐";
 
@@ -3067,27 +2536,24 @@
   );
 
 
-  /* =========================================
+  /* ========================================================
      AI WINDOW
-  ========================================= */
+  ======================================================== */
 
   const aiWindow =
     document.getElementById(
       "aiWindow"
     );
 
-
   const openAI =
     document.getElementById(
       "openAI"
     );
 
-
   const heroAI =
     document.getElementById(
-      "openAIFromHero"
+      "heroOpenAI"
     );
-
 
   const closeAI =
     document.getElementById(
@@ -3157,21 +2623,19 @@
   );
 
 
-  /* =========================================
-     REGISTRY SEARCH FROM AI BOX
-  ========================================= */
+  /* ========================================================
+     AI SEARCH BOX
+  ======================================================== */
 
   const aiQuery =
     document.getElementById(
       "aiQuery"
     );
 
-
-  const analyze =
+  const analyzeQuery =
     document.getElementById(
       "analyzeQuery"
     );
-
 
   const registrySearch =
     document.getElementById(
@@ -3179,87 +2643,79 @@
     );
 
 
-  if (
-    aiQuery &&
-    analyze &&
-    registrySearch
-  ) {
+  function runRegistrySearch() {
 
-    function runSearch() {
-
-      const value =
-        aiQuery.value.trim();
+    const value =
+      aiQuery.value.trim();
 
 
-      if (!value) return;
-
-
-      registrySearch.value =
-        value;
-
-
-      registrySearch.dispatchEvent(
-        new Event(
-          "input",
-          {
-            bubbles: true
-          }
-        )
-      );
-
-
-      document
-        .getElementById(
-          "incident-registry"
-        )
-        .scrollIntoView({
-          behavior: "smooth"
-        });
-
+    if (!value) {
+      return;
     }
 
 
-    analyze.addEventListener(
-      "click",
-      runSearch
-    );
+    registrySearch.value =
+      value;
 
 
-    aiQuery.addEventListener(
-      "keydown",
-      function (event) {
-
-        if (
-          event.key === "Enter"
-        ) {
-
-          event.preventDefault();
-
-          runSearch();
-
+    registrySearch.dispatchEvent(
+      new Event(
+        "input",
+        {
+          bubbles: true
         }
-
-      }
+      )
     );
+
+
+    document
+      .getElementById(
+        "incident-registry"
+      )
+      .scrollIntoView({
+        behavior: "smooth"
+      });
 
   }
 
 
-  /* =========================================
-     LIVE UPLOAD
-  ========================================= */
+  analyzeQuery.addEventListener(
+    "click",
+    runRegistrySearch
+  );
+
+
+  aiQuery.addEventListener(
+    "keydown",
+    function (event) {
+
+      if (
+        event.key === "Enter"
+      ) {
+
+        event.preventDefault();
+
+        runRegistrySearch();
+
+      }
+
+    }
+  );
+
+
+  /* ========================================================
+     UPLOAD
+  ======================================================== */
 
   const fileInput =
     document.getElementById(
       "evidenceFiles"
     );
 
-
   const uploadZone =
     document.getElementById(
       "uploadZone"
     );
-
 
   const uploadedFiles =
     document.getElementById(
@@ -3267,238 +2723,230 @@
     );
 
 
-  if (
-    fileInput &&
-    uploadZone &&
-    uploadedFiles
+  let files =
+    [];
+
+
+  function escapeText(
+    value
   ) {
 
-    let selectedFiles = [];
+    const temp =
+      document.createElement(
+        "div"
+      );
+
+    temp.textContent =
+      value;
+
+    return temp.innerHTML;
+
+  }
 
 
-    function fileSize(
-      bytes
+  function formatSize(
+    bytes
+  ) {
+
+    if (
+      bytes < 1024
     ) {
 
-      if (
-        bytes < 1024
-      ) {
-        return bytes + " B";
-      }
+      return bytes +
+        " B";
+
+    }
 
 
-      if (
-        bytes < 1024 * 1024
-      ) {
-
-        return (
-          (bytes / 1024)
-            .toFixed(1)
-          + " KB"
-        );
-
-      }
-
-
-      if (
-        bytes < 1024 * 1024 * 1024
-      ) {
-
-        return (
-          (bytes / (1024 * 1024))
-            .toFixed(1)
-          + " MB"
-        );
-
-      }
-
+    if (
+      bytes < 1024 * 1024
+    ) {
 
       return (
-        (bytes / (1024 * 1024 * 1024))
-          .toFixed(1)
-        + " GB"
-      );
+        bytes / 1024
+      ).toFixed(1) +
+      " KB";
 
     }
 
 
-    function renderFiles() {
-
-      uploadedFiles.innerHTML =
-        "";
-
-
-      selectedFiles.forEach(
-        function (
-          file,
-          index
-        ) {
-
-          const item =
-            document.createElement(
-              "div"
-            );
-
-
-          item.className =
-            "card";
-
-
-          item.innerHTML = `
-
-            <h3>
-              ${escapeHTML(file.name)}
-            </h3>
-
-            <p>
-              ${escapeHTML(
-                file.type ||
-                "Unknown file type"
-              )}
-              •
-              ${fileSize(file.size)}
-            </p>
-
-            <button
-              type="button"
-              class="action-btn"
-              style="margin-top:12px"
-              data-remove="${index}"
-            >
-              REMOVE
-            </button>
-
-          `;
-
-
-          uploadedFiles.appendChild(
-            item
-          );
-
-        }
-      );
-
-    }
-
-
-    function escapeHTML(
-      text
+    if (
+      bytes < 1024 * 1024 * 1024
     ) {
 
-      const div =
-        document.createElement(
-          "div"
-        );
-
-
-      div.textContent =
-        text;
-
-
-      return div.innerHTML;
+      return (
+        bytes /
+        (1024 * 1024)
+      ).toFixed(1) +
+      " MB";
 
     }
 
 
-    fileInput.addEventListener(
-      "change",
-      function () {
+    return (
+      bytes /
+      (1024 * 1024 * 1024)
+    ).toFixed(1) +
+    " GB";
 
-        selectedFiles =
-          Array.from(
-            fileInput.files
+  }
+
+
+  function renderFiles() {
+
+    uploadedFiles.innerHTML =
+      "";
+
+
+    files.forEach(
+      function (
+        file,
+        index
+      ) {
+
+        const row =
+          document.createElement(
+            "div"
           );
 
 
-        renderFiles();
-
-      }
-    );
+        row.className =
+          "card";
 
 
-    uploadZone.addEventListener(
-      "dragover",
-      function (event) {
+        row.innerHTML = `
+          <h3>
+            ${escapeText(file.name)}
+          </h3>
 
-        event.preventDefault();
+          <p>
+            ${escapeText(
+              file.type ||
+              "Unknown file type"
+            )}
+            ·
+            ${formatSize(file.size)}
+          </p>
 
-        uploadZone.classList.add(
-          "dragging"
+          <button
+            type="button"
+            class="action-btn"
+            data-remove-file="${index}"
+            style="margin-top:10px"
+          >
+            REMOVE
+          </button>
+        `;
+
+
+        uploadedFiles.appendChild(
+          row
         );
-
-      }
-    );
-
-
-    uploadZone.addEventListener(
-      "dragleave",
-      function () {
-
-        uploadZone.classList.remove(
-          "dragging"
-        );
-
-      }
-    );
-
-
-    uploadZone.addEventListener(
-      "drop",
-      function (event) {
-
-        event.preventDefault();
-
-        uploadZone.classList.remove(
-          "dragging"
-        );
-
-
-        selectedFiles =
-          Array.from(
-            event.dataTransfer.files
-          );
-
-
-        renderFiles();
-
-      }
-    );
-
-
-    uploadedFiles.addEventListener(
-      "click",
-      function (event) {
-
-        const button =
-          event.target.closest(
-            "[data-remove]"
-          );
-
-
-        if (!button) return;
-
-
-        const index =
-          Number(
-            button.dataset.remove
-          );
-
-
-        selectedFiles.splice(
-          index,
-          1
-        );
-
-
-        renderFiles();
 
       }
     );
 
   }
 
-})();
 
+  fileInput.addEventListener(
+    "change",
+    function () {
+
+      files =
+        Array.from(
+          fileInput.files
+        );
+
+
+      renderFiles();
+
+    }
+  );
+
+
+  uploadZone.addEventListener(
+    "dragover",
+    function (event) {
+
+      event.preventDefault();
+
+      uploadZone.classList.add(
+        "dragging"
+      );
+
+    }
+  );
+
+
+  uploadZone.addEventListener(
+    "dragleave",
+    function () {
+
+      uploadZone.classList.remove(
+        "dragging"
+      );
+
+    }
+  );
+
+
+  uploadZone.addEventListener(
+    "drop",
+    function (event) {
+
+      event.preventDefault();
+
+      uploadZone.classList.remove(
+        "dragging"
+      );
+
+
+      files =
+        Array.from(
+          event.dataTransfer.files
+        );
+
+
+      renderFiles();
+
+    }
+  );
+
+
+  uploadedFiles.addEventListener(
+    "click",
+    function (event) {
+
+      const button =
+        event.target.closest(
+          "[data-remove-file]"
+        );
+
+
+      if (!button) {
+        return;
+      }
+
+
+      const index =
+        Number(
+          button.dataset.removeFile
+        );
+
+
+      files.splice(
+        index,
+        1
+      );
+
+
+      renderFiles();
+
+    }
+  );
+
+})();
 </script>
 
 
