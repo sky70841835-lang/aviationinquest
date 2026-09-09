@@ -1,37 +1,228 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Aviation Inquest | Archival Records</title><link rel="stylesheet" href="styles.css"></head>
+
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1.0"
+  >
+
+  <title>Aviation Inquest | Archival Records</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
 <body data-page="archive">
+
 <nav>
-  <div class="logo-area"><img class="logo-image" src="assets/aviation-inquest-logo.png" alt="Aviation Inquest logo"></div>
-  <div class="nav-links">
-    <a href="index.html" data-page="registry">Registry Index</a>
-    <a href="investigation-files.html" data-page="investigations">Investigation Files</a>
-    <a href="archival-records.html" data-page="archive">Archival Records</a>
+
+  <div class="logo-area">
+
+```
+<a href="index.html">
+
+  <img
+    class="logo-image"
+    src="assets/aviation-inquest-logo.png"
+    alt="Aviation Inquest logo"
+  >
+
+</a>
+```
+
   </div>
+
+  <div class="nav-links">
+
+```
+<a
+  href="index.html"
+  data-page="registry"
+>
+  Home / Registry
+</a>
+
+<a
+  href="investigation-files.html"
+  data-page="investigations"
+>
+  Investigation Files
+</a>
+
+<a
+  href="archival-records.html"
+  data-page="archive"
+>
+  Archival Records
+</a>
+```
+
+  </div>
+
 </nav>
 
 <main class="container">
-<header><h1>ARCHIVAL RECORDS</h1><p>Browse the registry by month. Selecting a record opens its local record panel.</p></header>
-<div class="card-grid" id="archiveGrid"></div>
+
+<header>
+
+  <div class="eyebrow">
+    AVIATION INQUEST // HISTORICAL ARCHIVE
+  </div>
+
+  <h1>
+    ARCHIVAL RECORDS
+  </h1>
+
+  <p>
+    Browse Aviation Inquest records by month and open individual
+    cases through the existing record interface.
+  </p>
+
+</header>
+
+<div
+  class="card-grid"
+  id="archiveGrid"
+></div>
+
+<section class="glass-panel">
+
+  <div class="eyebrow">
+    ARCHIVE NOTE
+  </div>
+
+  <h2>
+    PRESERVING THE FLIGHT RECORD
+  </h2>
+
+  <p>
+    Historical aviation records are useful for understanding how
+    accidents and incidents have been investigated over time.
+    Archived information can include aircraft details, timelines,
+    operational information, technical evidence, and safety findings.
+  </p>
+
+</section>
+
 </main>
+
+<footer>
+
+  <div>
+    &copy; 2026 Aviation Inquest Archive. All rights reserved.
+  </div>
+
+  <div style="text-align:right;max-width:55%">
+    Maintained for public record, research, and educational analysis.
+    AI responses may include mistakes.
+  </div>
+
+</footer>
+
+<div
+  class="modal-backdrop"
+  id="modalBackdrop"
+  onclick="if(event.target===this)closeModal()"
+>
+
+  <div class="modal">
+
+```
+<div class="modal-head">
+
+  <h2 id="modalTitle">
+    Record
+  </h2>
+
+  <button
+    class="close"
+    onclick="closeModal()"
+  >
+    ×
+  </button>
+
+</div>
+
+<div
+  class="modal-body"
+  id="modalBody"
+></div>
+```
+
+  </div>
+
+</div>
+
+<div
+  class="toast"
+  id="toast"
+></div>
+
+<script src="app.js"></script>
+
 <script>
 document.addEventListener('DOMContentLoaded',()=>{
- const groups={};
- INCIDENTS.forEach(i=>(groups[i.archive]??=[]).push(i));
- const grid=document.getElementById('archiveGrid');
- grid.innerHTML=Object.entries(groups).map(([month,items])=>`
- <article class="card"><h3>${esc(month)}</h3><p>${items.length} indexed record${items.length===1?'':'s'}</p>
- <div class="meta">${items.map(i=>`<button class="action-btn" style="margin:5px 5px 0 0" onclick='openIncident(${JSON.stringify(i)})'>${esc(i.date)}</button>`).join('')}</div></article>`).join('');
+
+  const groups = {};
+
+  INCIDENTS.forEach(i=>{
+
+    (groups[i.archive] ??= []).push(i);
+
+  });
+
+
+  const grid =
+    document.getElementById('archiveGrid');
+
+  if(!grid) return;
+
+
+  grid.innerHTML =
+    Object.entries(groups)
+      .map(([month,items])=>`
+
+        <article class="card">
+
+          <div class="eyebrow">
+            ARCHIVE PERIOD
+          </div>
+
+          <h3>
+            ${esc(month)}
+          </h3>
+
+          <p>
+            ${items.length}
+            indexed record${items.length===1?'':'s'}
+          </p>
+
+          <div class="meta">
+
+            ${items.map(i=>`
+
+              <button
+                class="action-btn"
+                style="margin:5px 5px 0 0"
+                onclick='openIncident(${JSON.stringify(i)})'
+              >
+                ${esc(i.date)}
+              </button>
+
+            `).join('')}
+
+          </div>
+
+        </article>
+
+      `)
+      .join('');
+
 });
 </script>
 
-<footer><div>&copy; 2026 Aviation Inquest Archive. All rights reserved.</div>
-<div style="text-align:right;max-width:55%">Maintained for public record, research, and educational analysis. AI responses may include mistakes.</div></footer>
-<div class="modal-backdrop" id="modalBackdrop" onclick="if(event.target===this)closeModal()"><div class="modal">
-  <div class="modal-head"><h2 id="modalTitle">Record</h2><button class="close" onclick="closeModal()">×</button></div>
-  <div class="modal-body" id="modalBody"></div>
-</div></div>
-<div class="toast" id="toast"></div>
-<script src="app.js"></script>
-</body></html>
+</body>
+</html>
