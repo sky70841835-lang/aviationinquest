@@ -1,40 +1,639 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Aviation Inquest | Registry Index</title><link rel="stylesheet" href="styles.css"></head>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Aviation Inquest | Home</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
 <body data-page="registry">
+
 <nav>
-  <div class="logo-area"><img class="logo-image" src="assets/aviation-inquest-logo.png" alt="Aviation Inquest logo"></div>
+  <div class="logo-area">
+    <a href="index.html">
+      <img
+        class="logo-image"
+        src="assets/aviation-inquest-logo.png"
+        alt="Aviation Inquest logo"
+      >
+    </a>
+  </div>
+
   <div class="nav-links">
-    <a href="index.html" data-page="registry">Registry Index</a>
+    <a href="index.html" data-page="registry">Home / Registry</a>
     <a href="investigation-files.html" data-page="investigations">Investigation Files</a>
     <a href="archival-records.html" data-page="archive">Archival Records</a>
   </div>
 </nav>
 
 <main class="container">
-<header><h1>INCIDENT REGISTRY LOG</h1><p>Official repository detailing historical aviation accidents, investigations, and black-box transcripts.</p></header>
-<div class="stats">
-  <div class="stat"><strong id="resultCount">10</strong><span>Visible records</span></div>
-  <div class="stat"><strong>2026</strong><span>Registry year</span></div>
-  <div class="stat"><strong>Live</strong><span>Local search</span></div>
+
+  <!-- HERO -->
+
+  <section class="glass-hero">
+
+```
+<div class="hero-copy">
+
+  <div class="eyebrow">
+    AVIATION INQUEST // LIVE ARCHIVE
+  </div>
+
+  <h1>
+    INVESTIGATE<br>
+    EVERY FLIGHT.
+  </h1>
+
+  <p>
+    Aviation Inquest is a digital aviation accident archive built for
+    researchers, aviation enthusiasts, investigators, and anyone trying
+    to understand what happened before, during, and after an aviation incident.
+  </p>
+
+  <div class="hero-actions">
+
+    <a href="#ai-investigator" class="action-btn">
+      OPEN AI INVESTIGATOR
+    </a>
+
+    <a href="#evidence-upload" class="action-btn">
+      UPLOAD EVIDENCE
+    </a>
+
+    <a href="#incident-registry" class="action-btn">
+      VIEW REGISTRY
+    </a>
+
+  </div>
+
 </div>
+
+
+<div class="hero-visual">
+
+  <div class="radar-ring radar-one"></div>
+  <div class="radar-ring radar-two"></div>
+  <div class="radar-ring radar-three"></div>
+
+  <div class="radar-core">
+    <span>AI</span>
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- STATUS -->
+
+  <section class="stats">
+
+```
+<div class="stat">
+  <strong id="resultCount">10</strong>
+  <span>Visible records</span>
+</div>
+
+<div class="stat">
+  <strong>2026</strong>
+  <span>Registry year</span>
+</div>
+
+<div class="stat">
+  <strong>LIVE</strong>
+  <span>Local archive search</span>
+</div>
+
+<div class="stat">
+  <strong>AI</strong>
+  <span>Investigator interface</span>
+</div>
+```
+
+  </section>
+
+  <!-- LIVE SEARCH -->
+
+  <section id="incident-registry" class="glass-panel">
+
+```
+<header>
+  <div>
+    <div class="eyebrow">LIVE REGISTRY</div>
+    <h2>INCIDENT SEARCH</h2>
+    <p>
+      Search by date, aircraft, registration, location,
+      classification, or investigation document.
+    </p>
+  </div>
+</header>
+
 <div class="toolbar">
-  <div class="search-wrap"><input id="registrySearch" class="search-box" type="search" autocomplete="off" placeholder="Filter by date, location, registration, or aircraft model..."><button id="clearSearch" class="clear-search" aria-label="Clear search">×</button></div>
-  <button class="filter-btn active" data-filter="all">All</button>
-  <button class="filter-btn" data-filter="critical">Critical</button>
-  <button class="filter-btn" data-filter="active">Active</button>
+
+  <div class="search-wrap">
+    <input
+      id="registrySearch"
+      class="search-box"
+      type="search"
+      autocomplete="off"
+      placeholder="Search the aviation registry..."
+    >
+
+    <button
+      id="clearSearch"
+      class="clear-search"
+      aria-label="Clear search"
+    >
+      ×
+    </button>
+  </div>
+
+  <button class="filter-btn active" data-filter="all">
+    ALL
+  </button>
+
+  <button class="filter-btn" data-filter="critical">
+    CRITICAL
+  </button>
+
+  <button class="filter-btn" data-filter="active">
+    ACTIVE
+  </button>
+
 </div>
-<table class="registry-table"><thead><tr><th style="width:15%">Date</th><th style="width:45%">Incident Details</th><th style="width:20%">Classification</th><th style="width:20%">Documentation</th></tr></thead><tbody id="registryBody"></tbody></table>
-<div class="empty" id="emptyState">No matching records. The registry has entered its dramatic empty-room era.</div>
-<p style="margin-top:12px;color:#52525b;font-size:11px">Tip: click any row for record details, or click a document name to open its document index.</p>
+
+
+<table class="registry-table">
+
+  <thead>
+    <tr>
+      <th style="width:15%">DATE</th>
+      <th style="width:45%">INCIDENT DETAILS</th>
+      <th style="width:20%">CLASSIFICATION</th>
+      <th style="width:20%">DOCUMENTATION</th>
+    </tr>
+  </thead>
+
+  <tbody id="registryBody"></tbody>
+
+</table>
+
+<div class="empty" id="emptyState">
+  No matching records.
+</div>
+```
+
+  </section>
+
+  <!-- AI INVESTIGATOR -->
+
+  <section id="ai-investigator" class="glass-panel ai-panel">
+
+```
+<div class="ai-header">
+
+  <div>
+    <div class="eyebrow">
+      LIVE INTELLIGENCE MODULE
+    </div>
+
+    <h2>
+      AI INVESTIGATOR
+    </h2>
+
+    <p>
+      Query the Aviation Inquest archive using natural language.
+      Ask about aircraft, dates, incidents, classifications,
+      or investigation records.
+    </p>
+  </div>
+
+  <div class="ai-status">
+    <span></span>
+    SYSTEM ONLINE
+  </div>
+
+</div>
+
+
+<div class="ai-console">
+
+  <div class="ai-message">
+    <div class="ai-label">
+      AVIATION INQUEST AI
+    </div>
+
+    <p>
+      Investigator interface ready. Search the current local registry
+      by entering a case name, aircraft type, date, location, or
+      investigation keyword.
+    </p>
+  </div>
+
+
+  <div class="ai-message">
+    <div class="ai-label">
+      EXAMPLE QUERIES
+    </div>
+
+    <p>
+      "Show critical incidents"<br>
+      "Find Boeing 767 records"<br>
+      "Show August 2026 cases"<br>
+      "Find runway incidents"
+    </p>
+  </div>
+
+
+  <div class="ai-input">
+
+    <input
+      id="aiQuery"
+      type="text"
+      placeholder="Ask the investigator..."
+      autocomplete="off"
+    >
+
+    <button
+      class="action-btn"
+      type="button"
+      onclick="
+        const q=document.getElementById('aiQuery').value.trim();
+        if(q){
+          document.getElementById('registrySearch').value=q;
+          document.getElementById('registrySearch').dispatchEvent(new Event('input'));
+          document.getElementById('incident-registry').scrollIntoView({behavior:'smooth'});
+        }
+      "
+    >
+      ANALYZE
+    </button>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- UPLOAD -->
+
+  <section id="evidence-upload" class="glass-panel">
+
+```
+<header>
+
+  <div class="eyebrow">
+    EVIDENCE INTAKE SYSTEM
+  </div>
+
+  <h2>
+    LIVE EVIDENCE UPLOAD
+  </h2>
+
+  <p>
+    Upload investigation notes, photographs, reports, audio,
+    documents, or other research material from your device.
+  </p>
+
+</header>
+
+
+<div
+  id="uploadZone"
+  class="upload-zone"
+  onclick="document.getElementById('evidenceFiles').click()"
+>
+
+  <div class="upload-symbol">
+    +
+  </div>
+
+  <h3>
+    DROP FILES HERE
+  </h3>
+
+  <p>
+    or click to select files
+  </p>
+
+  <span>
+    Local browser upload interface
+  </span>
+
+</div>
+
+
+<input
+  id="evidenceFiles"
+  type="file"
+  multiple
+  hidden
+>
+
+
+<div id="uploadedFiles" class="uploaded-files"></div>
+```
+
+  </section>
+
+  <!-- CRASH EXPLANATION -->
+
+  <section class="glass-panel">
+
+```
+<header>
+
+  <div class="eyebrow">
+    INCIDENT RESEARCH GUIDE
+  </div>
+
+  <h2>
+    UNDERSTANDING AVIATION CRASHES
+  </h2>
+
+</header>
+
+
+<div class="card-grid">
+
+  <article class="card">
+
+    <h3>
+      Aircraft & Systems
+    </h3>
+
+    <p>
+      Investigations examine the aircraft type, configuration,
+      maintenance history, engines, flight controls, electrical
+      systems, navigation equipment, warnings, and other technical
+      factors that may have influenced the event.
+    </p>
+
+  </article>
+
+
+  <article class="card">
+
+    <h3>
+      Flight Sequence
+    </h3>
+
+    <p>
+      A crash investigation reconstructs the timeline of the flight,
+      including departure, altitude, speed, route, communications,
+      deviations, emergency actions, and the final known flight path.
+    </p>
+
+  </article>
+
+
+  <article class="card">
+
+    <h3>
+      Weather & Environment
+    </h3>
+
+    <p>
+      Investigators may examine visibility, precipitation, wind,
+      icing, turbulence, terrain, runway conditions, daylight,
+      and other environmental conditions surrounding the incident.
+    </p>
+
+  </article>
+
+
+  <article class="card">
+
+    <h3>
+      Human & Operational Factors
+    </h3>
+
+    <p>
+      Crew workload, decision-making, procedures, training,
+      communication, air traffic control, dispatch, and operational
+      conditions can all be relevant to understanding an accident.
+    </p>
+
+  </article>
+
+
+  <article class="card">
+
+    <h3>
+      Evidence Recovery
+    </h3>
+
+    <p>
+      Accident investigations can incorporate flight recorders,
+      cockpit voice recordings, aircraft wreckage, photographs,
+      maintenance records, radar data, communications, and witness
+      information.
+    </p>
+
+  </article>
+
+
+  <article class="card">
+
+    <h3>
+      Final Findings
+    </h3>
+
+    <p>
+      The final conclusion of an investigation is based on the
+      available evidence and may identify contributing factors,
+      safety recommendations, and lessons intended to prevent
+      similar accidents in the future.
+    </p>
+
+  </article>
+
+</div>
+```
+
+  </section>
+
+  <!-- INFORMATION -->
+
+  <section class="glass-panel">
+
+```
+<header>
+
+  <div class="eyebrow">
+    AVIATION INQUEST
+  </div>
+
+  <h2>
+    A RECORD OF WHAT HAPPENED.
+  </h2>
+
+  <p>
+    Aviation accidents are rarely the result of a single isolated
+    event. Investigations often reconstruct a chain of technical,
+    operational, environmental, and human factors to understand
+    how an incident developed.
+  </p>
+
+</header>
+```
+
+  </section>
+
 </main>
 
-<footer><div>&copy; 2026 Aviation Inquest Archive. All rights reserved.</div>
-<div style="text-align:right;max-width:55%">Maintained for public record, research, and educational analysis. AI responses may include mistakes.</div></footer>
-<div class="modal-backdrop" id="modalBackdrop" onclick="if(event.target===this)closeModal()"><div class="modal">
-  <div class="modal-head"><h2 id="modalTitle">Record</h2><button class="close" onclick="closeModal()">×</button></div>
-  <div class="modal-body" id="modalBody"></div>
-</div></div>
-<div class="toast" id="toast"></div>
+<footer>
+
+  <div>
+    &copy; 2026 Aviation Inquest Archive. All rights reserved.
+  </div>
+
+  <div style="text-align:right;max-width:55%">
+    Maintained for public record, research, and educational analysis.
+    AI responses may include mistakes.
+  </div>
+
+</footer>
+
+<!-- EXISTING APP.JS MODAL HOOKS -->
+
+<div
+  class="modal-backdrop"
+  id="modalBackdrop"
+  onclick="if(event.target===this)closeModal()"
+>
+
+  <div class="modal">
+
+```
+<div class="modal-head">
+
+  <h2 id="modalTitle">
+    Record
+  </h2>
+
+  <button
+    class="close"
+    onclick="closeModal()"
+  >
+    ×
+  </button>
+
+</div>
+
+<div
+  class="modal-body"
+  id="modalBody"
+></div>
+```
+
+  </div>
+
+</div>
+
+<div
+  class="toast"
+  id="toast"
+></div>
+
 <script src="app.js"></script>
-</body></html>
+
+<!-- HTML-ONLY UPLOAD INTERFACE -->
+
+<script>
+(function(){
+
+  const input = document.getElementById("evidenceFiles");
+  const zone = document.getElementById("uploadZone");
+  const list = document.getElementById("uploadedFiles");
+
+  if(!input || !zone || !list) return;
+
+  function size(bytes){
+    if(bytes === 0) return "0 B";
+
+    const units = ["B","KB","MB","GB"];
+    const i = Math.floor(Math.log(bytes) / Math.log(1024));
+
+    return (
+      (bytes / Math.pow(1024,i)).toFixed(1)
+      + " "
+      + units[i]
+    );
+  }
+
+  function render(files){
+
+    list.innerHTML = "";
+
+    Array.from(files).forEach((file,index)=>{
+
+      const item = document.createElement("div");
+
+      item.className = "card";
+
+      item.innerHTML = `
+        <h3>${file.name}</h3>
+        <p>${file.type || "Unknown file type"} · ${size(file.size)}</p>
+        <button
+          class="action-btn"
+          type="button"
+          onclick="this.parentElement.remove()"
+        >
+          REMOVE
+        </button>
+      `;
+
+      list.appendChild(item);
+
+    });
+
+  }
+
+  input.addEventListener("change",()=>{
+
+    render(input.files);
+
+  });
+
+
+  zone.addEventListener("dragover",(event)=>{
+
+    event.preventDefault();
+
+    zone.classList.add("dragging");
+
+  });
+
+
+  zone.addEventListener("dragleave",()=>{
+
+    zone.classList.remove("dragging");
+
+  });
+
+
+  zone.addEventListener("drop",(event)=>{
+
+    event.preventDefault();
+
+    zone.classList.remove("dragging");
+
+    const files = event.dataTransfer.files;
+
+    if(files.length){
+
+      render(files);
+
+    }
+
+  });
+
+})();
+</script>
+
+</body>
+</html>
