@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Aviation Inquest | Home</title>
@@ -15,81 +14,1753 @@ body>.container{width:min(1400px,calc(100% - 28px))!important;margin:20px auto 5
 @media(max-width:900px){.hero-visual{display:none}.stats{grid-template-columns:repeat(2,minmax(0,1fr))!important}.card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ai-header{flex-direction:column}}
 @media(max-width:650px){body>nav{height:64px!important;padding:0 10px!important}.logo-area{flex-basis:76px!important}.logo-area a{width:70px!important}.logo-image{width:78px!important;height:58px!important}.nav-links{display:none!important}body>.container{width:calc(100% - 14px)!important;margin-top:8px!important}.glass-hero{padding:30px 22px!important;border-radius:25px!important}.hero-copy h1{font-size:48px!important}.stats{grid-template-columns:1fr 1fr!important}.card-grid{grid-template-columns:1fr!important}.ai-input{flex-direction:column!important}.ai-input .action-btn{width:100%}body>footer{flex-direction:column!important;align-items:flex-start!important}.registry-table{display:block;overflow-x:auto}.ai-launch{right:12px!important;bottom:12px!important}}
   </style>
-</head>
-<body data-page="registry">
-<nav>
-  <div class="logo-area"><a href="index.html"><img class="logo-image" src="assets/aviation-inquest-logo.png" alt="Aviation Inquest logo"></a></div>
+<style>
+/* ============================================
+   HTML Visual Editor v2 — Injected Styles (embedded)
+   Design: Claude Design System
+   ============================================ */
+
+[data-hve-hovered] {
+  outline: 2px dashed #cc785c !important;
+  outline-offset: 2px !important;
+  cursor: pointer !important;
+}
+
+td[data-hve-hovered],
+th[data-hve-hovered],
+tr[data-hve-hovered] {
+  outline-offset: -2px !important;
+}
+
+[data-hve-selected] {
+  outline: 2px solid #cc785c !important;
+  outline-offset: 2px !important;
+  cursor: default;
+  touch-action: none;
+}
+
+[data-hve-dragging] {
+  touch-action: none;
+}
+
+[data-hve-handle] {
+  touch-action: none;
+}
+
+[data-hve-selected]:not(td):not(th):not(tr):not(thead):not(tbody):not(tfoot):not(table) {
+  position: relative;
+}
+
+
+td[data-hve-selected],
+th[data-hve-selected],
+tr[data-hve-selected] {
+  outline-offset: -2px !important;
+}
+
+table[data-hve-selected] {
+  outline-offset: 2px !important;
+  position: relative;
+}
+
+[data-hve-dragging] {
+  opacity: 0.85 !important;
+  outline: 2px dashed #a9583e !important;
+  cursor: grabbing !important;
+  box-shadow: 0 8px 32px rgba(20,20,19,0.2), 0 2px 8px rgba(204,120,92,0.15) !important;
+  transition: box-shadow 0.15s ease, opacity 0.15s ease !important;
+  z-index: 10000 !important;
+}
+
+[data-hve-editing] {
+  outline: 2px solid #a9583e !important;
+  outline-offset: 2px !important;
+  cursor: text !important;
+  min-height: 1em;
+}
+
+td[data-hve-editing],
+th[data-hve-editing] {
+  outline-offset: -2px !important;
+}
+
+/* Firefox scrollbar styling */
+[data-hve-editor],
+[data-hve-toolbar],
+[data-hve-context-menu],
+[data-hve-page-sorter],
+[data-hve-chart-panel] {
+  scrollbar-width: thin;
+  scrollbar-color: #8e8b82 transparent;
+}
+
+/* ---- Floating Toolbar ---- */
+[data-hve-toolbar] {
+  position: fixed;
+  display: none;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 10px;
+  background: #faf9f5;
+  border: 1px solid #e6dfd8;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(20,20,19,0.12), 0 1px 4px rgba(20,20,19,0.08);
+  z-index: 2147483644;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  user-select: none;
+  backdrop-filter: blur(8px);
+  writing-mode: horizontal-tb;
+  direction: ltr;
+  text-align: left;
+  word-break: normal;
+  word-wrap: normal;
+  overflow-wrap: normal;
+  white-space: nowrap;
+  line-height: 1.4;
+  text-transform: none;
+  letter-spacing: normal;
+  text-indent: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+[data-hve-toolbar] .hve-tb-group {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+[data-hve-toolbar] * {
+  writing-mode: horizontal-tb;
+  direction: ltr;
+  word-break: normal;
+  box-sizing: border-box;
+}
+
+[data-hve-toolbar] .hve-tb-sep {
+  width: 1px;
+  height: 22px;
+  background: #e6dfd8;
+  margin: 0 4px;
+}
+
+[data-hve-toolbar] button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 13px;
+  color: #3d3d3a;
+  transition: all 0.15s ease;
+  padding: 0;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+[data-hve-toolbar] button:hover {
+  background: #f5f0e8;
+  color: #141413;
+}
+
+[data-hve-toolbar] button:active {
+  background: #e6dfd8;
+  transform: scale(0.93);
+}
+
+[data-hve-toolbar] button.hve-active {
+  background: #cc785c;
+  color: white;
+}
+
+[data-hve-toolbar] button.hve-active:hover {
+  background: #a9583e;
+}
+
+[data-hve-toolbar] .hve-tb-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 64px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* ---- Dropdown ---- */
+[data-hve-dropdown] {
+  position: fixed;
+  background: #faf9f5;
+  border: 1px solid #e6dfd8;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(20,20,19,0.15);
+  padding: 6px;
+  z-index: 2147483645;
+  min-width: 140px;
+  max-height: 320px;
+  overflow-y: auto;
+  animation: hve-dropdown-in 0.15s ease;
+  white-space: normal;
+}
+
+[data-hve-dropdown] .hve-dd-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #3d3d3a;
+  transition: background 0.12s;
+  white-space: nowrap;
+}
+
+[data-hve-dropdown] .hve-dd-item:hover {
+  background: #f5f0e8;
+  color: #141413;
+}
+
+[data-hve-dropdown] .hve-dd-item .hve-dd-icon {
+  font-size: 15px;
+  width: 20px;
+  text-align: center;
+}
+
+[data-hve-dropdown] .hve-dd-divider {
+  height: 1px;
+  background: #e6dfd8;
+  margin: 4px 0;
+}
+
+@keyframes hve-dropdown-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(-4px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ---- Insert Indicator ---- */
+[data-hve-insert-indicator] {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #cc785c;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 2147483640;
+  animation: hve-indicator-pulse 1.5s ease infinite;
+}
+
+@keyframes hve-indicator-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* ---- Insert Panel ---- */
+[data-hve-insert-panel] {
+  position: fixed;
+  z-index: 2147483646;
+  background: #faf9f5;
+  border: 1px solid #e6dfd8;
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(20,20,19,0.18), 0 2px 8px rgba(20,20,19,0.08);
+  padding: 8px;
+  min-width: 200px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  animation: hve-panel-in 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-hve-insert-panel] .hve-ip-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #8e8b82;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 8px 12px 6px;
+}
+
+[data-hve-insert-panel] .hve-ip-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+
+[data-hve-insert-panel] .hve-ip-item:hover {
+  background: #f5f0e8;
+}
+
+[data-hve-insert-panel] .hve-ip-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  background: #f5f0e8;
+}
+
+[data-hve-insert-panel] .hve-ip-text {
+  display: flex;
+  flex-direction: column;
+}
+
+[data-hve-insert-panel] .hve-ip-text span:first-child {
+  font-size: 13px;
+  font-weight: 500;
+  color: #141413;
+}
+
+[data-hve-insert-panel] .hve-ip-text span:last-child {
+  font-size: 11px;
+  color: #8e8b82;
+  margin-top: 1px;
+}
+
+@keyframes hve-panel-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ---- Dialog ---- */
+[data-hve-dialog-overlay] {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(20,20,19,0.4);
+  backdrop-filter: blur(4px);
+  z-index: 2147483645;
+  animation: hve-fade-in 0.2s ease;
+}
+
+[data-hve-dialog] {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 2147483646;
+  background: #faf9f5;
+  border: 1px solid #e6dfd8;
+  border-radius: 16px;
+  box-shadow: 0 16px 48px rgba(20,20,19,0.2);
+  padding: 28px;
+  min-width: 320px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  animation: hve-dialog-in 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-hve-dialog] h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #141413;
+  margin-bottom: 20px;
+}
+
+[data-hve-dialog] label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: #6c6a64;
+  margin-bottom: 6px;
+}
+
+[data-hve-dialog] input[type="number"],
+[data-hve-dialog] input[type="text"],
+[data-hve-dialog] select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e6dfd8;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  background: #faf9f5;
+  color: #141413;
+  transition: border-color 0.2s;
+}
+
+[data-hve-dialog] input:focus,
+[data-hve-dialog] select:focus {
+  outline: none;
+  border-color: #cc785c;
+  box-shadow: 0 0 0 3px rgba(204,120,92,0.12);
+}
+
+[data-hve-dialog] .hve-dialog-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+[data-hve-dialog] .hve-btn-cancel {
+  padding: 9px 18px;
+  border: 1px solid #e6dfd8;
+  border-radius: 10px;
+  background: #faf9f5;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: #3d3d3a;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+
+[data-hve-dialog] .hve-btn-cancel:hover {
+  background: #f5f0e8;
+}
+
+[data-hve-dialog] .hve-btn-confirm {
+  padding: 9px 18px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #cc785c, #a9583e);
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  box-shadow: 0 2px 8px rgba(204,120,92,0.3);
+  transition: all 0.15s;
+}
+
+[data-hve-dialog] .hve-btn-confirm:hover {
+  background: #a9583e;
+  box-shadow: 0 4px 12px rgba(204,120,92,0.4);
+}
+
+@keyframes hve-dialog-in {
+  from { opacity: 0; transform: translate(-50%,-50%) scale(0.95); }
+  to { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+}
+
+@keyframes hve-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ---- Toast ---- */
+@keyframes hve-toast-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ---- Resize Handles ---- */
+[data-hve-resize-container] {
+  pointer-events: none;
+}
+
+[data-hve-handle] {
+  pointer-events: all;
+  transition: background 0.15s, transform 0.15s;
+}
+
+[data-hve-handle]:hover {
+  background: #a9583e !important;
+  transform: scale(1.3);
+}
+
+/* ---- Context Menu ---- */
+[data-hve-context-menu] {
+  position: fixed;
+  z-index: 2147483647;
+  background: #faf9f5;
+  border: 1px solid #e6dfd8;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(20,20,19,0.15);
+  padding: 6px;
+  min-width: 180px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  animation: hve-dropdown-in 0.15s ease;
+}
+
+[data-hve-context-menu] .hve-cm-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #3d3d3a;
+  transition: background 0.12s;
+}
+
+[data-hve-context-menu] .hve-cm-item:hover {
+  background: #f5f0e8;
+  color: #141413;
+}
+
+[data-hve-context-menu] .hve-cm-item.danger {
+  color: #EF4444;
+}
+
+[data-hve-context-menu] .hve-cm-item.danger:hover {
+  background: #FEF2F2;
+}
+
+[data-hve-context-menu] .hve-cm-divider {
+  height: 1px;
+  background: #e6dfd8;
+  margin: 4px 0;
+}
+
+[data-hve-context-menu] .hve-cm-icon {
+  width: 18px;
+  text-align: center;
+  font-size: 14px;
+}
+
+[data-hve-context-menu] .hve-cm-shortcut {
+  margin-left: auto;
+  font-size: 11px;
+  color: #e6dfd8;
+  font-family: 'SF Mono', monospace;
+}
+
+/* ---- Status Indicator ---- */
+[data-hve-status] {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #cc785c, #a9583e);
+  color: white;
+  border-radius: 24px;
+  font: 13px/1.4 "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 500;
+  box-shadow: 0 4px 16px rgba(204,120,92,0.35);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s;
+}
+
+[data-hve-status]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(204,120,92,0.45);
+}
+
+[data-hve-status] .hve-status-dot {
+  width: 8px;
+  height: 8px;
+  background: #10B981;
+  border-radius: 50%;
+  animation: hve-pulse 2s ease infinite;
+}
+
+@keyframes hve-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ---- Quick Add Button ---- */
+[data-hve-quick-add] {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* ---- Multi-select ---- */
+[data-hve-multi-selected] {
+  outline: 2px solid #cc785c !important;
+  outline-offset: 2px !important;
+  cursor: move !important;
+  box-shadow: 0 0 0 4px rgba(204, 120, 92, 0.12) !important;
+}
+
+[data-hve-marquee-preview] {
+  outline: 2px dashed #cc785c !important;
+  outline-offset: 1px !important;
+  box-shadow: 0 0 0 3px rgba(204, 120, 92, 0.1) !important;
+}
+
+[data-hve-marquee] {
+  transition: none !important;
+}
+
+[data-hve-multi-toast] {
+  position: fixed;
+  bottom: 64px;
+  right: 20px;
+  z-index: 2147483647;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 14px;
+  background: #faf9f5;
+  border: 1px solid #e6dfd8;
+  border-radius: 14px;
+  font: 13px/1.4 "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #3d3d3a;
+  box-shadow: 0 4px 16px rgba(20, 20, 19, 0.12);
+  user-select: none;
+  animation: hve-panel-in 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-hve-multi-toast] .hve-multi-info-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+[data-hve-multi-toast] .hve-multi-dot {
+  width: 8px;
+  height: 8px;
+  background: #cc785c;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+[data-hve-multi-toast] b {
+  color: #cc785c;
+  font-weight: 700;
+}
+
+[data-hve-multi-toast] .hve-multi-actions {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 4px 0;
+}
+
+[data-hve-multi-toast] .hve-multi-actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 12px;
+  color: #3d3d3a;
+  transition: all 0.12s ease;
+  padding: 0;
+}
+
+[data-hve-multi-toast] .hve-multi-actions button:hover {
+  background: #f5f0e8;
+  color: #141413;
+}
+
+[data-hve-multi-toast] .hve-multi-actions button:active {
+  background: #e6dfd8;
+  transform: scale(0.92);
+}
+
+[data-hve-multi-toast] .hve-multi-actions .hve-multi-btn-danger:hover {
+  background: #FEF2F2;
+  color: #EF4444;
+}
+
+[data-hve-multi-toast] .hve-multi-sep {
+  width: 1px;
+  height: 18px;
+  background: #e6dfd8;
+  margin: 0 3px;
+  flex-shrink: 0;
+}
+
+[data-hve-multi-toast] .hve-multi-hint {
+  color: #e6dfd8;
+  font-size: 11px;
+}
+
+/* ---- Locked Elements ---- */
+[data-hve-locked] {
+  cursor: not-allowed !important;
+  position: relative;
+}
+
+[data-hve-group][data-hve-selected] {
+  outline-style: dashed !important;
+  outline-color: #5db8a6 !important;
+}
+
+[data-hve-group][data-hve-selected]::before {
+  content: 'Group' !important;
+  background: #5db8a6 !important;
+}
+
+[data-hve-locked]::after {
+  content: '🔒';
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 12px;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+[data-hve-locked][data-hve-selected] {
+  outline-color: #8e8b82 !important;
+}
+
+[data-hve-context-menu] .hve-cm-item.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* ---- Page Sorter ---- */
+[data-hve-page-sorter] {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  z-index: 2147483646;
+  background: #faf9f5;
+  border: 1px solid #e6dfd8;
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(20,20,19,0.18), 0 2px 8px rgba(20,20,19,0.08);
+  width: 340px;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  animation: hve-panel-in 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-hve-page-sorter] .hve-ps-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px;
+  border-bottom: 1px solid #e6dfd8;
+  background: #f5f0e8;
+  border-radius: 16px 16px 0 0;
+  flex-shrink: 0;
+}
+
+[data-hve-page-sorter] .hve-ps-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #141413;
+}
+
+[data-hve-page-sorter] .hve-ps-count {
+  font-size: 11px;
+  color: #cc785c;
+  background: #efe9de;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+[data-hve-page-sorter] .hve-ps-close {
+  margin-left: auto;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #8e8b82;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+[data-hve-page-sorter] .hve-ps-close:hover {
+  background: #f5f0e8;
+  color: #141413;
+}
+
+[data-hve-page-sorter] .hve-ps-list {
+  overflow-y: auto;
+  padding: 8px;
+  flex: 1;
+}
+
+[data-hve-page-sorter] .hve-ps-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.15s;
+  border: 2px solid transparent;
+  margin-bottom: 4px;
+}
+
+[data-hve-page-sorter] .hve-ps-item:hover {
+  background: #f5f0e8;
+}
+
+[data-hve-page-sorter] .hve-ps-item.active {
+  border-color: #cc785c;
+  background: #efe9de;
+}
+
+[data-hve-page-sorter] .hve-ps-item.dragging {
+  opacity: 0.5;
+  transform: scale(0.95);
+}
+
+[data-hve-page-sorter] .hve-ps-item.drag-over {
+  border-color: #cc785c;
+  background: #efe9de;
+}
+
+[data-hve-page-sorter] .hve-ps-thumb {
+  flex-shrink: 0;
+}
+
+[data-hve-page-sorter] .hve-ps-right {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+[data-hve-page-sorter] .hve-ps-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+[data-hve-page-sorter] .hve-ps-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: #cc785c;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+[data-hve-page-sorter] .hve-ps-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: #141413;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+[data-hve-page-sorter] .hve-ps-actions {
+  display: flex;
+  gap: 4px;
+}
+
+[data-hve-page-sorter] .hve-ps-btn {
+  width: 26px;
+  height: 26px;
+  border: 1px solid #e6dfd8;
+  border-radius: 6px;
+  background: #faf9f5;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  padding: 0;
+}
+
+[data-hve-page-sorter] .hve-ps-btn:hover:not(:disabled) {
+  background: #f5f0e8;
+  border-color: #cc785c;
+}
+
+[data-hve-page-sorter] .hve-ps-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* ---- Alignment Guides ---- */
+[data-hve-guide] {
+  pointer-events: none !important;
+  opacity: 0.8;
+}
+
+/* ---- Format Brush ---- */
+[data-hve-format-brush] * {
+  cursor: copy !important;
+}
+
+[data-hve-format-brush] [data-hve-hovered] {
+  outline-color: #5db8a6 !important;
+  outline-style: dashed !important;
+}
+
+/* ---- Color Panel ---- */
+[data-hve-color-panel] {
+  position: fixed;
+  background: #faf9f5;
+  border: 1px solid #e6dfd8;
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(20,20,19,0.15);
+  padding: 12px;
+  z-index: 2147483646;
+  width: 240px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  animation: hve-dropdown-in 0.15s ease;
+  white-space: normal;
+}
+
+[data-hve-color-panel] .hve-cp-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #8e8b82;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+[data-hve-color-panel] .hve-cp-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 3px;
+  margin-bottom: 10px;
+}
+
+[data-hve-color-panel] .hve-cp-swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+  box-sizing: border-box;
+}
+
+[data-hve-color-panel] .hve-cp-swatch:hover {
+  transform: scale(1.2);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 1;
+  position: relative;
+}
+
+[data-hve-color-panel] .hve-cp-swatch.active {
+  outline: 2px solid #cc785c;
+  outline-offset: 2px;
+  transform: scale(1.15);
+}
+
+[data-hve-color-panel] .hve-cp-custom {
+  border-top: 1px solid #e6dfd8;
+  padding-top: 8px;
+}
+
+[data-hve-color-panel] .hve-cp-custom label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #8e8b82;
+  display: block;
+  margin-bottom: 6px;
+}
+
+[data-hve-color-panel] .hve-cp-custom-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+[data-hve-color-panel] .hve-cp-native {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #e6dfd8;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 2px;
+  background: #faf9f5;
+  flex-shrink: 0;
+}
+
+[data-hve-color-panel] .hve-cp-native::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+[data-hve-color-panel] .hve-cp-native::-webkit-color-swatch {
+  border: none;
+  border-radius: 5px;
+}
+
+[data-hve-color-panel] .hve-cp-hex {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid #e6dfd8;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: 'SF Mono', monospace;
+  color: #141413;
+  background: #faf9f5;
+  text-transform: uppercase;
+}
+
+[data-hve-color-panel] .hve-cp-hex:focus {
+  outline: none;
+  border-color: #cc785c;
+  box-shadow: 0 0 0 3px rgba(204,120,92,0.12);
+}
+
+/* ---- Content Boxes ---- */
+[data-hve-content-box] {
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+[data-hve-content-box]:hover {
+  border-color: #e6dfd8 !important;
+}
+
+[data-hve-content-box][data-hve-selected] {
+  border-color: #cc785c !important;
+  box-shadow: 0 0 0 3px rgba(204, 120, 92, 0.1) !important;
+}
+
+[data-hve-content-box].hve-drop-hover {
+  border-color: #cc785c !important;
+  background: rgba(204, 120, 92, 0.04) !important;
+  box-shadow: 0 0 0 3px rgba(204, 120, 92, 0.12) !important;
+}
+
+[data-hve-box-toolbar] button:hover {
+  border-color: #cc785c !important;
+  background: #efe9de !important;
+  transform: scale(1.08);
+}
+
+[data-hve-box-toolbar] button:active {
+  transform: scale(0.95);
+}
+
+[data-hve-placeholder] {
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+[data-hve-content-box]:hover [data-hve-placeholder] {
+  opacity: 1;
+}
+
+/* ---- Image Drop Overlay ---- */
+[data-hve-drop-overlay] {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 2147483645;
+  background: rgba(204, 120, 92, 0.06);
+  border: 3px dashed #cc785c;
+  pointer-events: none;
+  animation: hve-drop-overlay-in 0.25s ease;
+}
+
+[data-hve-drop-overlay] .hve-drop-content {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 32px 48px;
+  background: rgba(250, 249, 245, 0.95);
+  border: 2px solid #cc785c;
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(204, 120, 92, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+[data-hve-drop-overlay] .hve-drop-content span {
+  font: 16px/1.4 "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 600;
+  color: #cc785c;
+  letter-spacing: 0.3px;
+}
+
+@keyframes hve-drop-overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+[data-hve-drop-indicator] {
+  animation: hve-drop-indicator-pulse 1s ease infinite;
+}
+
+@keyframes hve-drop-indicator-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* ---- Floating Elements (absolute-positioned, styled identically to flow-mode elements) ---- */
+
+/* Prevent [data-hve-selected] position:relative from overriding float absolute positioning.
+   Inline style (position:absolute) already wins over CSS rules, but this guard ensures
+   no specificity edge case can break it. */
+[data-hve-floating][data-hve-selected] {
+  position: absolute !important;
+}
+
+@keyframes hve-float-in {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+[data-hve-floating].hve-float-new {
+  animation: hve-float-in 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---- Insert Panel Mode Toggle ---- */
+.hve-ip-mode-toggle {
+  display: flex;
+  gap: 4px;
+  padding: 6px 8px;
+  background: #f5f0e8;
+  border-radius: 10px;
+  margin: 4px 8px;
+}
+
+.hve-ip-mode-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: inherit;
+  color: #6c6a64;
+  transition: all 0.15s;
+}
+
+.hve-ip-mode-btn:hover {
+  color: #3d3d3a;
+  background: rgba(255,255,255,0.6);
+}
+
+.hve-ip-mode-btn.active {
+  background: #faf9f5;
+  color: #cc785c;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(20,20,19,0.08);
+}
+
+.hve-ip-divider {
+  height: 1px;
+  background: #e6dfd8;
+  margin: 4px 0;
+}
+
+/* ---- PDF Pagination ---- */
+[data-hve-pdf-panel] {
+  position: fixed;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 260px;
+  background: #faf9f5;
+  border: 1px solid #e6dfd8;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(20,20,19,0.12), 0 1px 4px rgba(20,20,19,0.08);
+  z-index: 2147483645;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  animation: hve-pdf-panel-in 0.3s cubic-bezier(0.4,0,0.2,1);
+  overflow: hidden;
+}
+
+@keyframes hve-pdf-panel-in {
+  from { opacity: 0; transform: translateY(-50%) translateX(12px); }
+  to { opacity: 1; transform: translateY(-50%) translateX(0); }
+}
+
+.hve-pdf-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid #e6dfd8;
+  background: #f5f0e8;
+}
+
+.hve-pdf-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #141413;
+}
+
+.hve-pdf-close {
+  width: 22px;
+  height: 22px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #6c6a64;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hve-pdf-close:hover {
+  background: #f5f0e8;
+  color: #141413;
+}
+
+.hve-pdf-body {
+  padding: 12px 14px;
+}
+
+.hve-pdf-row {
+  margin-bottom: 10px;
+}
+
+.hve-pdf-row label {
+  display: block;
+  font-size: 11px;
+  color: #6c6a64;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.hve-pdf-row select,
+.hve-pdf-row input[type="number"] {
+  width: 100%;
+  padding: 5px 8px;
+  border: 1px solid #e6dfd8;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #141413;
+  background: #faf9f5;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.hve-pdf-row select:focus,
+.hve-pdf-row input:focus {
+  border-color: #cc785c;
+  box-shadow: 0 0 0 2px rgba(204,120,92,0.1);
+}
+
+.hve-pdf-row input[type="range"] {
+  width: calc(100% - 45px);
+  vertical-align: middle;
+  accent-color: #cc785c;
+}
+
+.hve-pdf-scale-label {
+  font-size: 11px;
+  color: #6c6a64;
+  margin-left: 4px;
+}
+
+.hve-pdf-toggle {
+  display: flex;
+  gap: 4px;
+}
+
+.hve-pdf-toggle button {
+  flex: 1;
+  padding: 5px 10px;
+  border: 1px solid #e6dfd8;
+  border-radius: 8px;
+  background: #faf9f5;
+  font-size: 12px;
+  color: #6c6a64;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.hve-pdf-toggle button.active {
+  background: #efe9de;
+  color: #cc785c;
+  border-color: #cc785c;
+  font-weight: 500;
+}
+
+.hve-pdf-margins {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 4px;
+}
+
+.hve-pdf-margins input {
+  width: 100% !important;
+  text-align: center;
+  padding: 4px 2px !important;
+  font-size: 11px !important;
+}
+
+.hve-pdf-divider {
+  height: 1px;
+  background: #e6dfd8;
+  margin: 10px 0;
+}
+
+.hve-pdf-info {
+  font-size: 13px;
+  color: #cc785c;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.hve-pdf-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hve-pdf-btn-primary {
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #cc785c, #a9583e);
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.hve-pdf-btn-primary:hover {
+  box-shadow: 0 2px 12px rgba(204,120,92,0.3);
+  transform: translateY(-1px);
+}
+
+.hve-pdf-btn {
+  width: 100%;
+  padding: 6px 12px;
+  border: 1px solid #e6dfd8;
+  border-radius: 10px;
+  background: #faf9f5;
+  color: #3d3d3a;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.hve-pdf-btn:hover {
+  background: #f5f0e8;
+  border-color: #cc785c;
+}
+
+.hve-pdf-row-compact {
+  margin-bottom: 6px;
+}
+.hve-pdf-row-compact label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #3d3d3a;
+  cursor: pointer;
+}
+.hve-pdf-row-compact input[type="checkbox"] {
+  width: auto;
+  accent-color: #cc785c;
+}
+
+.hve-pdf-custom-size {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.hve-pdf-custom-size input {
+  flex: 1;
+  padding: 5px 6px;
+  border: 1px solid #e6dfd8;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #141413;
+  background: #faf9f5;
+  outline: none;
+  box-sizing: border-box;
+  text-align: center;
+}
+.hve-pdf-custom-size input:focus {
+  border-color: #cc785c;
+  box-shadow: 0 0 0 2px rgba(204,120,92,0.1);
+}
+.hve-pdf-custom-size span {
+  font-size: 12px;
+  color: #6c6a64;
+  flex-shrink: 0;
+}
+
+[data-hve-pdf-overlay] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 2147483639;
+}
+
+.hve-pdf-break-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-top: 2px dashed #cc785c;
+  pointer-events: none;
+}
+
+.hve-pdf-break-line.hve-pdf-break-manual {
+  border-top-color: #3B82F6;
+  border-top-style: solid;
+}
+
+.hve-pdf-break-line.hve-pdf-break-slide {
+  border-top-color: #10B981;
+  border-top-style: dotted;
+}
+
+.hve-pdf-break-label {
+  position: absolute;
+  left: 12px;
+  top: -18px;
+  font: 10px/1 "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: white;
+  background: #cc785c;
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.hve-pdf-break-manual .hve-pdf-break-label {
+  background: #3B82F6;
+}
+
+.hve-pdf-break-slide .hve-pdf-break-label {
+  background: #10B981;
+}
+
+.hve-pdf-page-number {
+  position: absolute;
+  right: 12px;
+  top: -18px;
+  font: 10px/1 "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: white;
+  background: #cc785c;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+[data-hve-toolbar] button[data-action="pdf-paginator"] {
+  display: none;
+}
+
+/* ---- Chart Typography ---- */
+[data-hve-chart-panel] {
+  position: fixed;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 260px;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: #faf9f5;
+  border: 1px solid #e6dfd8;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(20,20,19,0.12), 0 1px 4px rgba(20,20,19,0.08);
+  z-index: 2147483645;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  animation: hve-chart-panel-in 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+@keyframes hve-chart-panel-in {
+  from { opacity: 0; transform: translateY(-50%) translateX(12px); }
+  to { opacity: 1; transform: translateY(-50%) translateX(0); }
+}
+
+[data-hve-chart-panel] {
+  scrollbar-width: thin;
+  scrollbar-color: #e6dfd8 transparent;
+}
+
+[data-hve-chart-panel]::-webkit-scrollbar {
+  width: 4px;
+}
+
+[data-hve-chart-panel]::-webkit-scrollbar-thumb {
+  background: #e6dfd8;
+  border-radius: 4px;
+}
+
+.hve-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid #e6dfd8;
+  background: #f5f0e8;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.hve-chart-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #141413;
+}
+
+.hve-chart-close {
+  width: 22px;
+  height: 22px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #6c6a64;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hve-chart-close:hover {
+  background: #f5f0e8;
+  color: #141413;
+}
+
+.hve-chart-body {
+  padding: 12px 14px;
+}
+
+.hve-chart-section {
+  margin-bottom: 4px;
+}
+
+.hve-chart-section-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #8e8b82;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.hve-chart-divider {
+  height: 1px;
+  background: #e6dfd8;
+  margin: 10px 0;
+}
+
+.hve-chart-template-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.hve-chart-template-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 6px;
+  border: 1px solid #e6dfd8;
+  border-radius: 10px;
+  background: #faf9f5;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.hve-chart-template-btn:hover {
+  background: #efe9de;
+  border-color: #cc785c;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(204,120,92,0.12);
+}
+
+.hve-chart-template-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.hve-chart-template-name {
+  font-size: 10px;
+  color: #3d3d3a;
+  font-weight: 500;
+}
+
+.hve-chart-typo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hve-chart-typo-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 1px solid #e6dfd8;
+  border-radius: 8px;
+  background: #faf9f5;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+}
+
+.hve-chart-typo-btn:hover {
+  background: #f5f0e8;
+  border-color: #cc785c;
+}
+
+.hve-chart-typo-preview {
+  font-size: 14px;
+  color: #141413;
+  min-width: 55px;
+}
+
+.hve-chart-typo-name {
+  font-size: 11px;
+  color: #6c6a64;
+  font-weight: 500;
+}
+
+.hve-chart-fine-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hve-chart-ctrl-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hve-chart-ctrl-row label {
+  font-size: 11px;
+  color: #6c6a64;
+  min-width: 50px;
+  font-weight: 500;
+}
+
+.hve-chart-ctrl-row input[type="range"] {
+  flex: 1;
+  accent-color: #cc785c;
+  height: 4px;
+}
+
+.hve-chart-ctrl-row select {
+  flex: 1;
+  padding: 3px 6px;
+  border: 1px solid #e6dfd8;
+  border-radius: 6px;
+  font-size: 11px;
+  color: #141413;
+  background: #faf9f5;
+}
+
+.hve-chart-ctrl-val {
+  font-size: 10px;
+  color: #8e8b82;
+  min-width: 32px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+[data-hve-toolbar] button[data-action="chart-typo"].hve-tb-chart-active {
+  background: #ECFDF5;
+  color: #10B981;
+  box-shadow: inset 0 0 0 1px rgba(16,185,129,0.2);
+}
+</style></head>
+<div></div><body class="hve-web-active hve-edit-mode">
+<nav style="cursor: move; width: 1905px; height: 51px;">
+  <div class="logo-area"><a href="index.html" style="cursor: move; width: 75px; height: 46px; transform: translate(540px, -4px);"><img class="logo-image" src="assets/aviation-inquest-logo.png" alt="Aviation Inquest logo" style="width: 84px; height: 62px; cursor: move; transform: translate(-38px, 0px);"></a></div>
   <div class="nav-links">
     <a href="index.html" data-page="registry" class="active">HOME</a>
     <a href="#incident-registry">REGISTRY</a>
     <a href="investigation-files.html" data-page="investigations">INVESTIGATIONS</a>
     <a href="archival-records.html" data-page="archive">ARCHIVES</a>
   </div>
-  <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme">◐</button>
+  <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme" style="cursor: move;">◐</button>
 </nav>
 <main class="container">
-<section class="glass-hero">
-  <div class="hero-copy">
-    <div class="eyebrow">AVIATION INQUEST // LIVE ARCHIVE</div>
-    <h1>INVESTIGATE<br><span>EVERY FLIGHT.</span></h1>
-    <p>Aviation Inquest is a digital research archive for aviation accidents, investigations, aircraft histories, timelines, evidence, and historical analysis.</p>
-    <div class="hero-actions">
-      <button id="heroOpenAI" class="action-btn primary" type="button">OPEN AI INVESTIGATOR</button>
-      <a class="action-btn" href="#evidence-upload">UPLOAD EVIDENCE</a>
-      <a class="action-btn" href="#incident-registry">VIEW REGISTRY</a>
+<section class="glass-hero" style="">
+  
+  <div class="hero-copy" style="transform: translate(-10px, -1.5625px);">
+    <div class="eyebrow" style="cursor: move; font-family: Arial, Helvetica, sans-serif;">AVIATION INQUEST // LIVE ARCHIVE</div>
+    <h1 style="cursor: move; font-family: &quot;PingFang SC&quot;, sans-serif;">A SMALL INQUEST SITE&nbsp;</h1>
+    <p style="cursor: move; font-family: &quot;Source Han Sans SC&quot;, &quot;Noto Sans SC&quot;, sans-serif;">Aviation Inquest is a digital research archive for aviation accidents, investigations, aircraft histories, timelines, evidence, and historical analysis.</p>
+    <div class="hero-actions" style="cursor: move;">
+      <button id="heroOpenAI" class="action-btn primary" type="button" style="cursor: text;">OPEN THE CRASH SEARCHER</button>
+      <a class="action-btn" href="#evidence-upload" style="cursor: move; font-family: &quot;PingFang SC&quot;, sans-serif;">UPLOAD EVIDENCE</a>
+      <a class="action-btn" href="#incident-registry" style="cursor: move; font-family: &quot;PingFang SC&quot;, sans-serif;">VIEW REGISTRY</a>
     </div>
-  </div>
-  <div class="hero-visual"><div class="radar-ring radar-one"></div><div class="radar-ring radar-two"></div><div class="radar-ring radar-three"></div><div class="radar-core"><span>AI</span></div></div>
+  </div><div class="hero-visual" style="cursor: move;"><div class="radar-ring radar-one" style=""></div><div class="radar-ring radar-two" style=""></div><div class="radar-ring radar-three" style="cursor: move;"></div><div class="radar-core" style="color: rgb(255, 255, 255); cursor: move;"><span style="cursor: move;"><br></span></div></div>
 </section>
-<section class="stats">
-  <div class="stat"><strong id="resultCount">10</strong><span>Visible records</span></div>
-  <div class="stat"><strong>2026</strong><span>Registry year</span></div>
-  <div class="stat"><strong>LIVE</strong><span>Local archive</span></div>
-  <div class="stat"><strong>AI</strong><span>Investigator access</span></div>
+<section class="stats" style="cursor: move;">
+  <div class="stat"><strong id="resultCount" style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 26px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">10</strong><span style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 26px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">Visible records</span></div>
+  <div class="stat" style="cursor: move;"><strong style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 26px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">2026</strong><span style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 26px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">Registry year</span></div>
+  <div class="stat" style="cursor: move;"><strong style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 26px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">LIVE</strong><span style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 26px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">Local archive</span></div>
+  
 </section>
-<section id="incident-registry" class="glass-panel">
-  <header><div class="eyebrow">LIVE REGISTRY</div><h2>INCIDENT SEARCH</h2><p>Search by date, location, registration, aircraft model, classification, or documentation.</p></header>
+<section id="incident-registry" class="glass-panel" style="cursor: move;">
+  <header style="color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 26px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;"><div class="eyebrow" style="color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 26px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none; cursor: move;">LIVE REGISTRY</div><h2 style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 26px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">INCIDENT SEARCH</h2><p style="cursor: move; font-size: 12px;">Search by date, location, registration, aircraft model, classification, or documentation.</p></header>
   <div class="toolbar">
     <div class="search-wrap"><input id="registrySearch" class="search-box" type="search" autocomplete="off" placeholder="Search the aviation registry..."><button id="clearSearch" class="clear-search" type="button" aria-label="Clear search">×</button></div>
     <button class="filter-btn active" data-filter="all" type="button">ALL</button><button class="filter-btn" data-filter="critical" type="button">CRITICAL</button><button class="filter-btn" data-filter="active" type="button">ACTIVE</button>
   </div>
-  <table class="registry-table"><thead><tr><th style="width:15%">DATE</th><th style="width:45%">INCIDENT DETAILS</th><th style="width:20%">CLASSIFICATION</th><th style="width:20%">DOCUMENTATION</th></tr></thead><tbody id="registryBody"></tbody></table>
+  <table class="registry-table" style="color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 26px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none; cursor: move;"><thead><tr><th style="width:15%">DATE</th><th style="width:45%">INCIDENT DETAILS</th><th style="width:20%">CLASSIFICATION</th><th style="width: 20%; cursor: move;">DOCUMENTATION</th></tr></thead><tbody id="registryBody"></tbody></table>
   <div class="empty" id="emptyState">No matching records.</div>
 </section>
 <section id="ai-investigator" class="glass-panel">
-  <div class="ai-header"><header><div class="eyebrow">LIVE INTELLIGENCE MODULE</div><h2>AI INVESTIGATOR</h2><p>Use the free external AI assistant for broader research, while the local search stays connected to the Aviation Inquest registry.</p></header><div class="ai-status"><span></span>SYSTEM READY</div></div>
-  <div class="ai-console"><div class="ai-message"><div class="ai-label">AVIATION INQUEST</div><p>Investigator console ready. Search a case, aircraft, location, date, or classification.</p></div><div class="ai-input"><input id="aiQuery" type="text" placeholder="Search the registry..." autocomplete="off"><button id="analyzeQuery" class="action-btn" type="button">SEARCH</button></div></div>
+  <div class="ai-header"><div class="ai-status"><span></span>SYSTEM READY</div></div>
+  <div class="ai-console"><div class="ai-message" style="cursor: move;"><div class="ai-label" style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 12px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">AVIATION INQUEST</div><p style="cursor: text; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 10px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">Investigator console ready. Search a case, aircraft, location, date, or classification.</p></div><div class="ai-input"><input id="aiQuery" type="text" placeholder="Search the registry..." autocomplete="off"><button id="analyzeQuery" class="action-btn" type="button">SEARCH</button></div></div>
 </section>
 <section id="evidence-upload" class="glass-panel">
-  <header><div class="eyebrow">EVIDENCE INTAKE</div><h2>LIVE EVIDENCE UPLOAD</h2><p>Add research files, photographs, documents, audio, or other material from your device.</p></header>
-  <input id="evidenceFiles" type="file" multiple hidden>
-  <label id="uploadZone" class="upload-zone" for="evidenceFiles"><div class="upload-symbol">+</div><h3>DROP FILES HERE</h3><p>or click to browse</p><span>PDF • JPG • PNG • TXT • DOC • AUDIO • VIDEO</span></label>
+  <header style="cursor: move;"><div class="eyebrow" style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 26px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">EVIDENCE INTAKE</div><h2 style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 26px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">LIVE EVIDENCE UPLOAD</h2><p style="cursor: text; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 26px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">BETA</p></header>
+  <input id="evidenceFiles" type="file" multiple="" hidden="">
+  <label id="uploadZone" class="upload-zone" for="evidenceFiles" style="cursor: move;"><div class="upload-symbol">+</div><h3 style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 26px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">DROP FILES HERE</h3><p style="cursor: text; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 10px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">or click to browse</p><span style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 10px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">PDF • JPG • PNG • TXT • DOC • AUDIO • VIDEO</span></label>
   <div id="uploadedFiles" class="uploaded-files"></div>
 </section>
 <section class="glass-panel">
-  <header><div class="eyebrow">INCIDENT RESEARCH GUIDE</div><h2>UNDERSTANDING AVIATION CRASHES</h2><p>Accident investigations reconstruct what happened by examining several categories of evidence.</p></header>
+  <header><div class="eyebrow" style="color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 26px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none; cursor: move;">INCIDENT RESEARCH GUIDE</div><h2 style="color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 26px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">UNDERSTANDING AVIATION CRASHES</h2><p style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 10px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">Accident investigations reconstruct what happened by examining several categories of evidence.</p></header>
   <div class="card-grid">
-    <article class="card"><h3>Aircraft &amp; Systems</h3><p>Investigators may examine aircraft configuration, maintenance history, engines, flight controls, navigation equipment, warnings, and other technical information.</p></article>
-    <article class="card"><h3>Flight Sequence</h3><p>The timeline can include departure, altitude, speed, routing, communications, deviations, emergency actions, and the final known flight path.</p></article>
-    <article class="card"><h3>Weather &amp; Environment</h3><p>Visibility, wind, precipitation, icing, turbulence, terrain, runway conditions, and other environmental conditions may be relevant.</p></article>
-    <article class="card"><h3>Human &amp; Operational Factors</h3><p>Crew workload, procedures, training, communication, air traffic control, dispatch, and operating conditions may form part of the investigation.</p></article>
-    <article class="card"><h3>Evidence Recovery</h3><p>Flight recorders, cockpit voice recordings, wreckage, photographs, radar data, communications, maintenance records, and witness information can contribute evidence.</p></article>
-    <article class="card"><h3>Final Findings</h3><p>Investigators may identify causes and contributing factors and issue findings or safety recommendations based on the evidence available.</p></article>
+    <article class="card"><h3 style="color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 26px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">Aircraft &amp; Systems</h3><p style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 10px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">Investigators may examine aircraft configuration, maintenance history, engines, flight controls, navigation equipment, warnings, and other technical information.</p></article>
+    <article class="card"><h3 style="cursor: text; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 26px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">Flight Sequence</h3><p style="cursor: text; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 10px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">The timeline can include departure, altitude, speed, routing, communications, deviations, emergency actions, and the final known flight path.</p></article>
+    <article class="card"><h3 style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 26px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">Weather &amp; Environment</h3><p style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 10px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">Visibility, wind, precipitation, icing, turbulence, terrain, runway conditions, and other environmental conditions may be relevant.</p></article>
+    <article class="card"><h3 style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 26px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">Human &amp; Operational Factors</h3><p style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 10px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">Crew workload, procedures, training, communication, air traffic control, dispatch, and operating conditions may form part of the investigation.</p></article>
+    <article class="card"><h3 style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 26px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">Evidence Recovery</h3><p style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 10px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">Flight recorders, cockpit voice recordings, wreckage, photographs, radar data, communications, maintenance records, and witness information can contribute evidence.</p></article>
+    <article class="card"><h3 style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 26px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">Final Findings</h3><p style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 10px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;">Investigators may identify causes and contributing factors and issue findings or safety recommendations based on the evidence available.</p></article>
   </div>
 </section>
-<section class="glass-panel"><header><div class="eyebrow">AVIATION INQUEST</div><h2>A RECORD OF WHAT HAPPENED.</h2><p>Aviation Inquest is intended for public record, historical research, and educational analysis. Archive information may be incomplete or subject to later investigation findings.</p></header></section>
+<section class="glass-panel"><header style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 10px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;"><div class="eyebrow" style="cursor: move;">AVIATION INQUEST</div><h2>A RECORD OF WHAT HAPPENED.</h2><p>Aviation Inquest is intended for public record, historical research, and educational analysis. Archive information may be incomplete or subject to later investigation findings.</p></header></section>
 </main>
-<footer><div>&copy; 2026 Aviation Inquest Archive. All rights reserved.</div><div>Public record • Research • Educational analysis</div></footer>
-<div class="modal-backdrop" id="modalBackdrop" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modal-head"><h2 id="modalTitle">Record</h2><button class="close" type="button" onclick="closeModal()">×</button></div><div class="modal-body" id="modalBody"></div></div></div>
+<footer style="cursor: move; color: rgb(247, 248, 250); background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); font-size: 10px; font-weight: 700; font-family: &quot;PingFang SC&quot;, sans-serif; font-style: normal; text-decoration: none; text-align: start; line-height: normal; letter-spacing: normal; border-radius: 0px; border: 0px rgb(247, 248, 250); box-shadow: none; opacity: 1; padding: 0px; margin: 0px; text-shadow: none;"><div>© 2026 Aviation Inquest Archive. All rights reserved.</div><div>Public record • Research • Educational analysis</div></footer>
+<div class="modal-backdrop" id="modalBackdrop" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modal-head" style="font-size: 10px;"><h2 id="modalTitle" style="font-family: &quot;PingFang SC&quot;, sans-serif; cursor: move;">CONTACT<br>EMAIL:NUT70841835@gmail.com</h2></div><div class="modal-body" id="modalBody"></div></div></div>
 <div class="toast" id="toast"></div>
-<button id="openAI" class="ai-launch" type="button">◉ AI INVESTIGATOR</button>
+<button id="openAI" class="ai-launch" type="button" style="cursor: move;">◉ USE THE AI TO HELP YOU</button>
 <div id="aiWindow" class="ai-window" aria-hidden="true">
-  <div class="ai-window-head"><div class="ai-window-title"><strong>AVIATION INQUEST AI</strong><span>FREE AI ACCESS</span></div><button id="closeAI" class="ai-close" type="button" aria-label="Close AI window">×</button></div>
+  <div class="ai-window-head"><div class="ai-window-title"><strong style="">AVIATION INQUEST AI</strong><span style="">FREE AI ACCESS</span></div><button id="closeAI" class="ai-close" type="button" aria-label="Close AI window">×</button></div>
   <div class="ai-window-body">
     <div class="ai-orb">AI</div>
-    <h2>INVESTIGATOR READY</h2>
-    <p>Choose a free AI service. Aviation Inquest prepares the project briefing for you and copies it so you can paste it into the AI chat.</p>
-    <div class="ai-context"><b>CURRENT BRIEFING</b><span id="aiBriefingText">General Aviation Inquest website research and investigation assistance.</span></div>
+    <h2 style="">INVESTIGATOR READY</h2>
+    <p style="">Choose a free AI service. Aviation Inquest prepares the project briefing for you and copies it so you can paste it into the AI chat.</p>
+    <div class="ai-context"><b style="">CURRENT BRIEFING</b><span id="aiBriefingText" style="">General Aviation Inquest website research and investigation assistance.</span></div>
     <button id="launchChatGPT" class="ai-provider" type="button">OPEN CHATGPT + BRIEFING</button>
     <button id="launchGemini" class="ai-provider" type="button">OPEN GEMINI + BRIEFING</button>
     <div class="ai-window-note">The external AI opens in a separate tab. Your Aviation Inquest API keys are never exposed here.</div>
@@ -130,5 +1801,6 @@ body>.container{width:min(1400px,calc(100% - 28px))!important;margin:20px auto 5
   input.addEventListener('change',()=>{files=Array.from(input.files);renderFiles();});zone.addEventListener('dragover',e=>{e.preventDefault();zone.classList.add('dragging');});zone.addEventListener('dragleave',()=>zone.classList.remove('dragging'));zone.addEventListener('drop',e=>{e.preventDefault();zone.classList.remove('dragging');files=Array.from(e.dataTransfer.files);renderFiles();});list.addEventListener('click',e=>{const b=e.target.closest('[data-remove-file]');if(!b)return;files.splice(Number(b.dataset.removeFile),1);renderFiles();});
 })();
 </script>
-</body>
-</html>
+
+
+</body></html>
